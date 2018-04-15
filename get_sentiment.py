@@ -98,14 +98,14 @@ class TwitterClient(object):
         sentiment_val = sum(sentiment_val_arr)
         
         if sentiment_val < 0:
-            neg_tweet_example = tweets[sentiment_val_arr.index(-2)]['text']
+            neg_tweet_example = str(tweets[sentiment_val_arr.index(-2)]['text'].encode(sys.stdout.encoding, errors='replace'))
             descriptor = 'Twitter sentiment analysis shows that there is a substantial number of negative tweets surrounding ' \
             + company_name \
             + '.  This may signal a controversial public presence, which should be taken into account when performing future research.' \
             + 'An example of a negative tweet is shown below:\n\n' \
             + neg_tweet_example
         else:
-            pos_tweet_example = tweets[sentiment_val_arr.index(1)]['text']
+            pos_tweet_example = str(tweets[sentiment_val_arr.index(1)]['text'].encode(sys.stdout.encoding, errors='replace'))
             descriptor = 'Twitter sentiment analysis shows that tweets surrounding ' \
             + company_name \
             + ' are largely positive. ' \
