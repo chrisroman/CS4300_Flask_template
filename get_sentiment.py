@@ -88,30 +88,40 @@ class TwitterClient(object):
             # print error (if any)
             print("Error : " + str(e))
 
-    def get_query_sentiment(self, query):
-        tweets = self.get_tweets(query, count=10)
+    def get_company_sentiment_descriptor(self, company_name):
+        tweets = self.get_tweets(company_name, count=100)
         tweet_sentiments = [self.get_tweet_sentiment(x) for x in tweets]
 
-        threshold = 3
+        # negative tweets carry weight -2, positive carry weight +1, neutral carry weight +0
+        val_map = {'negative':-2, 'positive':1, 'neutral':0}
+        sentiment_val_arr = [val_map[x] for x in tweet_sentiments]
+        sentiment_val = sum(sentiment_val_arr)
+        
+        if sentiment_val < 0:
+            neg_tweet_example = tweets[sentiment_val_arr.index(-2)]['text']
+            descriptor = 'Twitter sentiment analysis shows that there is a substantial number of negative tweets surrounding ' \
+            + company_name \
+            + '.  This may signal a controversial public presence, which should be taken into account when performing future research.' \
+            + 'An example of a negative tweet is shown below:\n\n' \
+            + neg_tweet_example
+        else:
+            pos_tweet_example = tweets[sentiment_val_arr.index(1)]['text']
+            descriptor = 'Twitter sentiment analysis shows that tweets surrounding ' \
+            + company_name \
+            + ' are largely positive. ' \
+            + 'This may signal a company with a strong public presence and good public relations, which should be taken into account when performing future research.' \
+            + 'An example of a positive tweet is shown below: \n \n' \
+            + pos_tweet_example
 
-        # if 3 out of 20 tweets are negative, we say that a query is negative
-        # otherwise it is positive. This metric takes into account that in general
-        # more tweets are positive than negative
-
-        neg_count = 0
-        for sentiment in tweet_sentiments:
-            if sentiment == 'negative':
-                neg_count += 1
-
-        return 'negative' if neg_count >= threshold else 'positive'
+        return descriptor
 
  
 def main():
     company_name = ' '.join(sys.argv[1:])
 
     api = TwitterClient()
-    company_sentiment = api.get_query_sentiment(company_name)
-    print('Sentiment for {} is {}.'.format(company_name, company_sentiment))
+    company_sentiment = api.get_company_sentiment_descriptor(company_name)
+    print(company_sentiment)
  
 
 if __name__ == "__main__":
