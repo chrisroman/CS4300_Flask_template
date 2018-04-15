@@ -1,7 +1,7 @@
 import csv
 import glob
 
-
+#Creates a list of tickers of all the distinct companies using the csv files
 def get_tickers():
 	tickers = []
 	for filename in glob.iglob('*.csv'):
@@ -13,6 +13,7 @@ def get_tickers():
 
 	return tickers
 
+#Write the tickers to an output file
 def write_to_file(data):
 	filename = 'output.txt'
 	with open(filename, 'wb') as x_file:
