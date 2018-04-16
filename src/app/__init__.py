@@ -26,6 +26,10 @@ db = SQLAlchemy(app)
 def index():
   return render_template('index.html')
 
+@app.route('/<path:path>', methods=['GET'])
+def any_root_path(path):
+  return render_template('index.html')
+
 @app.route('/query', methods=['POST'])
 @cross_origin()
 def query():
@@ -34,9 +38,6 @@ def query():
   response = jsonify(data)
   return response
 
-#@app.route('/<path:path>', methods=['GET'])
-#def any_root_path(path):
-#  return render_template('index.html')
 
 # HTTP error handling
 @app.errorhandler(404)
