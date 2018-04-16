@@ -50,7 +50,7 @@ class Home extends React.Component {
 	}
 
 	performQuery = () => {
-		fetch('http://localhost:5000/query', {
+		fetch('/query', {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accepts': 'application/json',
