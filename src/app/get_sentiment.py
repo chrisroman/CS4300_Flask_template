@@ -3,6 +3,7 @@ import tweepy
 import sys
 from tweepy import OAuthHandler
 from textblob import TextBlob
+import os
  
 class TwitterClient(object):
     '''
@@ -18,6 +19,12 @@ class TwitterClient(object):
         api_secret = 'TKxoibLLCDtp8hiXOaLy60DsvPsZePga5Ig4qUw62xP5QuZxdS'
         access_token = '985548524518608896-47tQqjE4L3u1FC8k53AC7TpOmXCbDnQ'
         access_token_secret = 'WQUEYIBb07MoJVVjqGx6DtV5nle8IdIDTW0QsTXUQ7aNa'
+
+        # TODO: Change the above to use environment variables
+        # api_key = os.environ['TWITTER_API_KEY']
+        # api_secret = os.environ['TWITTER_API_SECRET']
+        # access_token = os.environ['TWITTER_ACCESS_TOKEN']
+        # access_token_secret = os.environ['TWITTER_ACCESS_SECRET']
  
         # attempt authentication
         try:

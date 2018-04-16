@@ -1,10 +1,14 @@
 !_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+api	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^api = TwitterClient()$/;"	v	language:Python
 api	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^api = TwitterClient()$/;"	v	language:Python
 app	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^app = Flask(__name__, static_url_path='\/static')$/;"	v	language:Python
 build_vectorizer	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^def build_vectorizer(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):$/;"	f	language:Python
+clean_tweet	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def clean_tweet(self, tweet):$/;"	m	language:Python	class:TwitterClient
 clean_tweet	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def clean_tweet(self, tweet):$/;"	m	language:Python	class:TwitterClient
 company_desc	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^company_desc = pickle.load(open(os.path.join(dir_path, "company_desc.p"), "rb" ))$/;"	v	language:Python
+company_name	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^company_name = "Slack"$/;"	v	language:Python
 company_name	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^company_name = "Slack"$/;"	v	language:Python
+company_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^company_sentiment = api.get_company_sentiment_descriptor(company_name)$/;"	v	language:Python
 company_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^company_sentiment = api.get_company_sentiment_descriptor(company_name)$/;"	v	language:Python
 config	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^import config$/;"	i	language:Python
 cors	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^cors = CORS(app)$/;"	v	language:Python
@@ -16,8 +20,11 @@ dir_path	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app
 expand_query	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/expand_query.py	/^def expand_query(query):$/;"	f	language:Python
 expand_query	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^from expand_query import expand_query $/;"	i	language:Python
 Flask	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
+get_company_sentiment_descriptor	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_company_sentiment_descriptor(self, company_name):$/;"	m	language:Python	class:TwitterClient
 get_company_sentiment_descriptor	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def get_company_sentiment_descriptor(self, company_name):$/;"	m	language:Python	class:TwitterClient
+get_tweets	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_tweets(self, query, count = 10):$/;"	m	language:Python	class:TwitterClient
 get_tweets	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def get_tweets(self, query, count = 10):$/;"	m	language:Python	class:TwitterClient
+get_tweet_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_tweet_sentiment(self, tweet):$/;"	m	language:Python	class:TwitterClient
 get_tweet_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def get_tweet_sentiment(self, tweet):$/;"	m	language:Python	class:TwitterClient
 index	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^def index():$/;"	f	language:Python
 jaccard	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^def jaccard(query): $/;"	f	language:Python
@@ -26,23 +33,31 @@ make_response	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/sr
 nltk	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/expand_query.py	/^import nltk as nltk$/;"	i	language:Python
 not_found	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^def not_found(error):$/;"	f	language:Python
 np	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^import numpy as np$/;"	i	language:Python
+OAuthHandler	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^from tweepy import OAuthHandler$/;"	i	language:Python
 OAuthHandler	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^from tweepy import OAuthHandler$/;"	i	language:Python
+os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^import os$/;"	i	language:Python
 os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/expand_query.py	/^import os$/;"	i	language:Python
 os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^import os$/;"	i	language:Python
 os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^import os$/;"	i	language:Python
 pickle	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^import pickle $/;"	i	language:Python
 query	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^def query():$/;"	f	language:Python
+re	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^import re$/;"	i	language:Python
 re	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^import re$/;"	i	language:Python
 render_template	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 request	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 SQLAlchemy	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask_sqlalchemy import SQLAlchemy$/;"	i	language:Python
 synonyms	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/expand_query.py	/^def synonyms(word):$/;"	f	language:Python
+sys	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^import sys$/;"	i	language:Python
 sys	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^import sys$/;"	i	language:Python
 sys	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^import sys$/;"	i	language:Python
+TextBlob	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^from textblob import TextBlob$/;"	i	language:Python
 TextBlob	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^from textblob import TextBlob$/;"	i	language:Python
 TfidfVectorizer	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^from sklearn.feature_extraction.text import TfidfVectorizer$/;"	i	language:Python
 TreebankWordTokenizer	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^from nltk.tokenize import TreebankWordTokenizer$/;"	i	language:Python
+tweepy	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^import tweepy$/;"	i	language:Python
 tweepy	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^import tweepy$/;"	i	language:Python
+TwitterClient	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^class TwitterClient(object):$/;"	c	language:Python
 TwitterClient	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^class TwitterClient(object):$/;"	c	language:Python
 wordnet	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/expand_query.py	/^from nltk.corpus import wordnet$/;"	i	language:Python
+__init__	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def __init__(self):$/;"	m	language:Python	class:TwitterClient
 __init__	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def __init__(self):$/;"	m	language:Python	class:TwitterClient
