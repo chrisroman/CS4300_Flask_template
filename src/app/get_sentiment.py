@@ -109,21 +109,27 @@ class TwitterClient(object):
         sentiment_val_arr = [val_map[x] for x in tweet_sentiments]
         sentiment_val = sum(sentiment_val_arr)
         
-        if sentiment_val < 0:
-            neg_tweet_example = str(tweets[sentiment_val_arr.index(-2)]['text'].encode(sys.stdout.encoding, errors='replace'))
-            descriptor = 'Twitter sentiment analysis shows that there is a substantial number of negative tweets surrounding ' \
-            + company_name \
-            + '.  This may signal a controversial public presence, which should be taken into account when performing future research.' \
-            + 'An example of a negative tweet is shown below:\n\n' \
-            + neg_tweet_example
-        else:
-            pos_tweet_example = str(tweets[sentiment_val_arr.index(1)]['text'].encode(sys.stdout.encoding, errors='replace'))
-            descriptor = 'Twitter sentiment analysis shows that tweets surrounding ' \
-            + company_name \
-            + ' are largely positive. ' \
-            + 'This may signal a company with a strong public presence and good public relations, which should be taken into account when performing future research.' \
-            + 'An example of a positive tweet is shown below: \n \n' \
-            + pos_tweet_example
+        print("TWEETS: ", tweets)
+        print("SENTIMENT ARRAY: ", sentiment_val_arr)
+
+        try:
+          if sentiment_val < 0:
+              neg_tweet_example = str(tweets[sentiment_val_arr.index(-2)]['text'].encode(sys.stdout.encoding, errors='replace'))
+              descriptor = 'Twitter sentiment analysis shows that there is a substantial number of negative tweets surrounding ' \
+              + company_name \
+              + '.  This may signal a controversial public presence, which should be taken into account when performing future research.' \
+              + 'An example of a negative tweet is shown below:\n\n' \
+              + neg_tweet_example
+          else:
+              pos_tweet_example = str(tweets[sentiment_val_arr.index(1)]['text'].encode(sys.stdout.encoding, errors='replace'))
+              descriptor = 'Twitter sentiment analysis shows that tweets surrounding ' \
+              + company_name \
+              + ' are largely positive. ' \
+              + 'This may signal a company with a strong public presence and good public relations, which should be taken into account when performing future research.' \
+              + 'An example of a positive tweet is shown below: \n \n' \
+              + pos_tweet_example
+        except:
+          descriptor = "No description available..."
 
         return (sentiment_val, descriptor)
 
