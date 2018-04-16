@@ -8,8 +8,8 @@ category_dic	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/sr
 cat_lst	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^cat_lst = list(category_dic.values())$/;"	v	language:Python
 clean_tweet	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def clean_tweet(self, tweet):$/;"	m	language:Python	class:TwitterClient
 clean_tweet	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def clean_tweet(self, tweet):$/;"	m	language:Python	class:TwitterClient
-company_cat_mat	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_cat_mat = pickle.load(open("company_category_mat.p","rb"))$/;"	v	language:Python
-company_des	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_des = pickle.load(open("c_des.p", "rb"))$/;"	v	language:Python
+company_cat_mat	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_cat_mat = pickle.load(open(make_path("company_category_mat.p"),"rb"))$/;"	v	language:Python
+company_des	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_des = pickle.load(open(make_path("c_des.p"), "rb" ))$/;"	v	language:Python
 company_desc	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jaccard.py	/^company_desc = pickle.load(open(os.path.join(dir_path, "c_des.p"), "rb" ))$/;"	v	language:Python
 company_desc	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^company_desc = pickle.load(open(os.path.join(dir_path, "company_desc.p"), "rb" ))$/;"	v	language:Python
 company_name	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^company_name = "Slack"$/;"	v	language:Python
@@ -50,6 +50,7 @@ jaccard	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/
 json	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^import json$/;"	i	language:Python
 jsonify	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 jsonify	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
+make_path	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def make_path(filename):$/;"	f	language:Python
 make_response	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 make_response	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 nltk	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/expand_query.py	/^import nltk as nltk$/;"	i	language:Python
@@ -60,6 +61,7 @@ np	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jacc
 np	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^import numpy as np$/;"	i	language:Python
 OAuthHandler	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^from tweepy import OAuthHandler$/;"	i	language:Python
 OAuthHandler	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^from tweepy import OAuthHandler$/;"	i	language:Python
+os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^import os$/;"	i	language:Python
 os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^import os$/;"	i	language:Python
 os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jaccard.py	/^import os$/;"	i	language:Python
 os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^import os$/;"	i	language:Python
