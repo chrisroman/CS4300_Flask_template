@@ -1,2 +1,2 @@
-web: cd src/client && npm start
+web: npm start
 backend: gunicorn --chdir src/ app:app
