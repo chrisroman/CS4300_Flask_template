@@ -4,7 +4,11 @@ migrations
 vagrant/.vagrant
 vagrant/site.retry
 vagrant/a4keypair.pem
+<<<<<<< HEAD
 node_modules/
 
 # Vim Tags
 tags
+
+# Don't push Heroku App
+companysearcher/
