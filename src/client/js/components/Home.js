@@ -113,11 +113,11 @@ class Home extends React.Component {
 								<DropdownItem onClick={this.addCategory}>Materials</DropdownItem>
 								<DropdownItem onClick={this.addCategory}>REIT</DropdownItem>
 								<DropdownItem onClick={this.addCategory}>Telecom Services</DropdownItem>
-								<DropdownItem onClick={this.addCategory}>Utilities Services</DropdownItem>
+								<DropdownItem onClick={this.addCategory}>Utilities</DropdownItem>
 								<DropdownItem onClick={this.addCategory}>Large-Cap</DropdownItem>
 								<DropdownItem onClick={this.addCategory}>Mid-Cap</DropdownItem>
 								<DropdownItem onClick={this.addCategory}>Small-Cap</DropdownItem>
-								<DropdownItem onClick={this.addCategory}>Values</DropdownItem>
+								<DropdownItem onClick={this.addCategory}>Value</DropdownItem>
 								<DropdownItem onClick={this.addCategory}>Growth</DropdownItem>
 								<DropdownItem onClick={this.addCategory}>Socially Conscious</DropdownItem>
 							</DropdownMenu>
