@@ -1,4 +1,4 @@
-alembic==0.9.5
+alembic==0.8.6
 autoenv==1.0.0
 certifi==2017.7.27.1
 chardet==3.0.4
@@ -8,6 +8,7 @@ Flask-Cors==3.0.3
 Flask-Migrate==2.1.1
 Flask-Script==2.0.5
 Flask-SQLAlchemy==2.2
+gunicorn==19.7.0
 idna==2.6
 itsdangerous==0.24
 Jinja2==2.9.6
