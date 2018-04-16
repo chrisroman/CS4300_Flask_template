@@ -9,10 +9,10 @@ from jaccard import *
 
 # Configure Flask app
 app = Flask(__name__, static_url_path='/static')
-cors = CORS(app)
+#cors = CORS(app)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-app.config['CORS_HEADERS'] = 'Content-Type'
+#app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Database
 db = SQLAlchemy(app)
@@ -26,12 +26,8 @@ db = SQLAlchemy(app)
 def index():
   return render_template('index.html')
 
-@app.route('/<path:path>', methods=['GET'])
-def any_root_path(path):
-  return render_template('index.html')
-
 @app.route('/query', methods=['POST'])
-@cross_origin()
+#@cross_origin()
 def query():
   data = request.data
   print(data)

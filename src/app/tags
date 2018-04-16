@@ -1,5 +1,4 @@
 !_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
-any_root_path	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^def any_root_path(path):$/;"	f	language:Python
 api	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^api = TwitterClient()$/;"	v	language:Python
 api	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^api = TwitterClient()$/;"	v	language:Python
 app	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^app = Flask(__name__, static_url_path='\/static')$/;"	v	language:Python
@@ -14,7 +13,6 @@ company_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearch
 company_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^company_sentiment = api.get_company_sentiment_descriptor(company_name)$/;"	v	language:Python
 config	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^import config$/;"	i	language:Python
 config	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^import config$/;"	i	language:Python
-cors	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^cors = CORS(app)$/;"	v	language:Python
 CORS	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
 cors	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^cors = CORS(app)$/;"	v	language:Python
 CORS	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python

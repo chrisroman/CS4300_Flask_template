@@ -6,7 +6,7 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Button } from 'reactstrap';
 import { InputGroup, Input } from 'reactstrap';
-
+import axios from 'axios'
 
 class Home extends React.Component {
 	constructor (props) {
@@ -50,16 +50,9 @@ class Home extends React.Component {
 	}
 
 	performQuery = () => {
-		fetch('/query', {
-			headers: {
-				'Content-Type': 'application/json',
-				'Accepts': 'application/json',
-			},
-			method: 'POST',
-			body: JSON.stringify({
-				user_keywords: this.state.user_keywords,
-				categories: this.state.categories,
-			})
+		axios.post('/query', {
+			user_keywords: this.state.user_keywords,
+			categories: this.state.categories,
 		})
 			.then((response) => {
 				return response.json()
