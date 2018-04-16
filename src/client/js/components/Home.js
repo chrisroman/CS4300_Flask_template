@@ -59,7 +59,7 @@ class Home extends React.Component {
 			.then((response) => {
 				console.log(response)
 				this.setState({lodating_results: false})
-				visualizeResults(response)
+				this.visualizeResults(response)
 			})
 	}
 
