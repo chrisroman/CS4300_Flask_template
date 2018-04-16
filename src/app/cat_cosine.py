@@ -14,7 +14,7 @@ category_dic = {'VCR':"Consumer Discretionary", 'VDC':"Consumer Staples",
 				'VB': "Small-Cap", 'VTV':"Value", 'VUG':"Growth", 
 				'DSI':"Socially Conscious"}
 
-company_des = pickle.load(open("c_des.p", "rb"))
+company_des = pickle.load(open("company_desc.p", "rb"))
 
 comp_categ_mat = np.zeros((len(company_des),len(category_dic)))
 

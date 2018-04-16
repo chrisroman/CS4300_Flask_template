@@ -8,6 +8,7 @@ import sys
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 company_desc = pickle.load(open(os.path.join(dir_path, "company_desc.p"), "rb" ))
+ticker_to_name = pickle.load(open(os.path.join(dir_path, "t_comp.p"), "rb" ))
 
 def build_vectorizer(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):
     """Returns a TfidfVectorizer object
@@ -21,10 +22,18 @@ def build_vectorizer(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):
     """
     # YOUR CODE HERE
     return TfidfVectorizer(min_df=min_df, max_df=max_df, max_features=max_features, stop_words=stop_words, norm=norm)
-''' 
-    returns the jaccard similarity on the expanded query  
-'''
 
+''' 
+    Returns the jaccard similarity and company information of the top 10
+    companies searched.
+    @returns: Dict<Tuple> in the following format:
+    {
+      "SYMBOL1": (jaccard_score, company_name, company_description),
+      "SYMBOL2": (jaccard_score, company_name, company_description),
+      "SYMBOL3": (jaccard_score, company_name, company_description),
+      ...
+    }
+'''
 def jaccard(query): 
     n_feats = 100
     doc_by_vocab = np.empty([len(company_desc.keys()), n_feats])
@@ -45,13 +54,16 @@ def jaccard(query):
 
     sort_lst = sorted(matches, key=lambda x: x[0])
 
+    results = {}
     for i in range(0,10):
         try:
-            print(company_desc[matches[i][1]])
-            print("\n")
+            jac_score, symbol = matches[i]
+            results[symbol] = (jac_score, ticker_to_name[symbol], company_desc[symbol])
         except:
-            break
+            return results
+
+    return results
 
 # Get rid of this if you dont want it, just here as an example 
-jaccard("vacation")
+#jaccard("vacation")
 

@@ -96,6 +96,11 @@ class TwitterClient(object):
             print("Error : " + str(e))
 
     def get_company_sentiment_descriptor(self, company_name):
+        '''
+        @returns: Tuple - (sentiment_val, descriptor)
+        - sentiment_val is the sentiment score
+        - descriptor is the description given this sentiment score
+        '''
         tweets = self.get_tweets(company_name, count=100)
         tweet_sentiments = [self.get_tweet_sentiment(x) for x in tweets]
 
@@ -120,10 +125,10 @@ class TwitterClient(object):
             + 'An example of a positive tweet is shown below: \n \n' \
             + pos_tweet_example
 
-        return descriptor
+        return (sentiment_val, descriptor)
 
  
-company_name = "Slack"
-api = TwitterClient()
-company_sentiment = api.get_company_sentiment_descriptor(company_name)
-print(company_sentiment)
+# company_name = "Slack"
+# api = TwitterClient()
+# company_sentiment = api.get_company_sentiment_descriptor(company_name)
+# print(company_sentiment)

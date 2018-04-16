@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify, make_response, request
 from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 import config
+import json
 
 from get_sentiment import *
 from jaccard import *
@@ -17,6 +18,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # Database
 db = SQLAlchemy(app)
 
+# create (Twitter) sentiment analyzer
+twitter_analyzer = TwitterClient()
+
 # Import + Register Blueprints
 # from app.TODO import TODO as TODO # pylint: disable=C0413
 # app.register_blueprint(TODO)
@@ -29,10 +33,28 @@ def index():
 @app.route('/query', methods=['POST'])
 #@cross_origin()
 def query():
-  data = request.data
-  print(data)
-  response = jsonify(data)
-  return response
+  data = json.loads(request.data)
+  print("Data: ", data)
+
+  # Peform jaccard similarity analysis on the keywords that the user input
+  jaccard_results = {}
+  company_sentiments = {}
+  if data["user_keywords"] != "":
+    jaccard_results = jaccard(data["user_keywords"])
+    print("Jaccard results: ", jaccard_results)
+
+    # Do sentiment analysis on all of the returned companies
+    for ticker in jaccard_results:
+      company_name = jaccard_results[ticker][1]
+      sentiment_data = twitter_analyzer.get_company_sentiment_descriptor(company_name)
+      company_sentiments[ticker] = sentiment_data
+
+  response = {
+      "jaccard_results": jaccard_results,
+      "company_sentiments": company_sentiments
+  }
+
+  return jsonify(response)
 
 
 # HTTP error handling
