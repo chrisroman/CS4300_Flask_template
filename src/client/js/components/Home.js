@@ -149,6 +149,10 @@ class Home extends React.Component {
 					</div>
 				</form>
 
+				<div className="global-serach">
+					<h1>Here</h1>
+				</div>
+
 				<div className="bottomcorner">
 					<p>Project Name: {this.state.project_name}</p>
 					<p>Student Names: {this.state.names}</p>
