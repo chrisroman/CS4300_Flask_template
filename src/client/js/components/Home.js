@@ -55,10 +55,7 @@ class Home extends React.Component {
 			categories: this.state.categories,
 		})
 			.then((response) => {
-				return response.json()
-			})
-			.then((body) => {
-				console.log(body)
+				console.log(response)
 			})
 	}
 
