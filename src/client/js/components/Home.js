@@ -139,12 +139,6 @@ class Home extends React.Component {
 
 							<Button type="button" className="btn btn-info" onClick={this.performQuery}> Go! </Button>
 
-							{ /* Create a loading circle */
-								(this.state.loading_results)
-									? (<i className="fa fa-spinner fa-spin" style="font-size:24px"></i>)
-									: (<i></i>)
-							}
-
 						</div>
 					</div>
 				</form>
