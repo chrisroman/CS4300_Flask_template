@@ -8,18 +8,20 @@ category_dic	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/sr
 cat_lst	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^cat_lst = list(category_dic.values())$/;"	v	language:Python
 clean_tweet	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def clean_tweet(self, tweet):$/;"	m	language:Python	class:TwitterClient
 clean_tweet	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def clean_tweet(self, tweet):$/;"	m	language:Python	class:TwitterClient
-company_des	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_des = pickle.load(open("company_desc.p", "rb"))$/;"	v	language:Python
-company_desc	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jaccard.py	/^company_desc = pickle.load(open(os.path.join(dir_path, "company_desc.p"), "rb" ))$/;"	v	language:Python
+company_cat_mat	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_cat_mat = pickle.load(open("company_category_mat.p","rb"))$/;"	v	language:Python
+company_des	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_des = pickle.load(open("c_des.p", "rb"))$/;"	v	language:Python
+company_desc	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jaccard.py	/^company_desc = pickle.load(open(os.path.join(dir_path, "c_des.p"), "rb" ))$/;"	v	language:Python
 company_desc	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^company_desc = pickle.load(open(os.path.join(dir_path, "company_desc.p"), "rb" ))$/;"	v	language:Python
 company_name	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^company_name = "Slack"$/;"	v	language:Python
 company_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^company_sentiment = api.get_company_sentiment_descriptor(company_name)$/;"	v	language:Python
-comp_categ_mat	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^comp_categ_mat = np.zeros((len(company_des),len(category_dic)))$/;"	v	language:Python
 comp_lst	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^comp_lst = list(company_des.keys())$/;"	v	language:Python
 config	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^import config$/;"	i	language:Python
 config	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^import config$/;"	i	language:Python
 CORS	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
 cors	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^cors = CORS(app)$/;"	v	language:Python
 CORS	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
+cosine_analysis	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def cosine_analysis(query):$/;"	f	language:Python
+cosine_sim	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def cosine_sim(query, mat):$/;"	f	language:Python
 cross_origin	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
 cross_origin	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
 csv	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^import csv$/;"	i	language:Python
@@ -35,6 +37,7 @@ Flask	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/_
 Flask	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 get_company_sentiment_descriptor	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_company_sentiment_descriptor(self, company_name):$/;"	m	language:Python	class:TwitterClient
 get_company_sentiment_descriptor	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def get_company_sentiment_descriptor(self, company_name):$/;"	m	language:Python	class:TwitterClient
+get_top10	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def get_top10(mat):$/;"	f	language:Python
 get_tweets	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_tweets(self, query, count = 10):$/;"	m	language:Python	class:TwitterClient
 get_tweets	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def get_tweets(self, query, count = 10):$/;"	m	language:Python	class:TwitterClient
 get_tweet_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_tweet_sentiment(self, tweet):$/;"	m	language:Python	class:TwitterClient
@@ -74,8 +77,8 @@ render_template	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher
 render_template	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 request	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 request	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
-reverse_index_cat	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^reverse_index_cat = {symbol:idx for symbol, idx in enumerate(cat_lst)}$/;"	v	language:Python
-reverse_index_comp	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^reverse_index_comp = {symbol:idx for symbol, idx in enumerate(comp_lst)}$/;"	v	language:Python
+reverse_index_cat	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^reverse_index_cat = {symbol:idx for idx, symbol in enumerate(cat_lst)}$/;"	v	language:Python
+reverse_index_comp	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^reverse_index_comp = {symbol:idx for idx, symbol in enumerate(comp_lst)}$/;"	v	language:Python
 SQLAlchemy	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask_sqlalchemy import SQLAlchemy$/;"	i	language:Python
 SQLAlchemy	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask_sqlalchemy import SQLAlchemy$/;"	i	language:Python
 synonyms	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/expand_query.py	/^def synonyms(word):$/;"	f	language:Python

@@ -7,7 +7,7 @@ import os
 import sys
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-company_desc = pickle.load(open(os.path.join(dir_path, "company_desc.p"), "rb" ))
+company_desc = pickle.load(open(os.path.join(dir_path, "c_des.p"), "rb" ))
 ticker_to_name = pickle.load(open(os.path.join(dir_path, "t_comp.p"), "rb" ))
 
 def build_vectorizer(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):

@@ -7,49 +7,51 @@ import numpy as np
 
 
 category_dic = {'VCR':"Consumer Discretionary", 'VDC':"Consumer Staples", 
-				'VDE': "Energy", 'VFH':"Financials", 'VHT':"Health Care",
-				'VIS': "Industrials", 'VGT':"Information Technology",
-				'VAW': "Materials", 'VNQ':"REIT", 'VOX':"Telecom Services",
-				'VPU': "Utilities", 'VV':"Large-Cap", 'VO':"Mid-Cap", 
-				'VB': "Small-Cap", 'VTV':"Value", 'VUG':"Growth", 
-				'DSI':"Socially Conscious"}
+        'VDE': "Energy", 'VFH':"Financials", 'VHT':"Health Care",
+        'VIS': "Industrials", 'VGT':"Information Technology",
+        'VAW': "Materials", 'VNQ':"REIT", 'VOX':"Telecom Services",
+        'VPU': "Utilities", 'VV':"Large-Cap", 'VO':"Mid-Cap", 
+        'VB': "Small-Cap", 'VTV':"Value", 'VUG':"Growth", 
+        'DSI':"Socially Conscious"}
 
-company_des = pickle.load(open("company_desc.p", "rb"))
-
-comp_categ_mat = np.zeros((len(company_des),len(category_dic)))
-
+company_des = pickle.load(open("c_des.p", "rb"))
 cat_lst = list(category_dic.values())
-# category_index = {"Consumer Discretionary":0, "Consumer Staples":1, 
-# 				  "Energy":2, "Financials":3, "Health Care":4,
-# 				  "Industrials":5, "Information Technology":6,
-# 				  "Materials":7, "REIT":8, "Telecom Services":9,
-# 				  "Utilities":10, "Large-Cap":11, "Mid-Cap":12, 
-# 				  "Small-Cap":13, "Value":14, "Growth":15, 
-# 				  "Socially Conscious":16}
-
-
-# lst = ["VCR", "VDE", "VIS", ...]
-reverse_index_cat = {symbol:idx for symbol, idx in enumerate(cat_lst)}
+reverse_index_cat = {symbol:idx for idx, symbol in enumerate(cat_lst)}
 comp_lst = list(company_des.keys())
-reverse_index_comp = {symbol:idx for symbol, idx in enumerate(comp_lst)}
-
-print(reverse_index_cat)
+reverse_index_comp = {symbol:idx for idx, symbol in enumerate(comp_lst)}
 
 
-# def get_tickers():
-# 	tickers = []
-# 	for filename in glob.iglob('*.csv'):
-# 		with open(filename) as csvDataFile:
-# 		    csvReader = csv.reader(csvDataFile)
-# 		    for row in csvReader:
-# 		    	if len(row) > 2 and row[1] != 'Symbol': 
-# 		        	tickers.append(row[1])
+company_cat_mat = pickle.load(open("company_category_mat.p","rb"))
 
-# 	return tickers
-	
-# def run():
-# 	data = get_tickers()
-# 	pickle.dump(data, open("t_comp.p","wb"))
+def cosine_sim(query, mat):
+  query_mat = np.zeros((len(company_des),len(category_dic)))
+  for cat in query:
+    cat_ind = reverse_index_cat[str(cat)]
+    query_mat[:,cat_ind] = 1
+  nor_query_mat = query_mat / (query_mat.sum(axis=1, keepdims=True) + 1)
+
+  cos_sim = nor_query_mat * mat
+
+  return cos_sim
+
+def get_top10(mat):
+  sum_arr = np.sum(mat,axis=1)
+  max_ind = np.argpartition(sum_arr, -10)[-10:]
+  top_comp = []
+  for i in max_ind:
+    top_comp.append(comp_lst[i])
+  return top_comp
 
 
-# run()
+def cosine_analysis(query):
+  matrix = company_cat_mat
+  cos = cosine_sim(query, matrix)
+  return get_top10(cos)
+
+  # Debugging
+  # print(top_10)
+  # print(reverse_index_comp['EMN'])
+  # print(cos[987])   
+
+# query = ["Mid-Cap"]
+# cosine_analysis(query)

@@ -16,7 +16,8 @@ class Home extends React.Component {
 			project_name: "Company Search",
 			dropdownIsOpen: false,
 			categories: {},
-			user_keywords: ""
+			user_keywords: "",
+			loading_results: false,
 		}
 	}
 
@@ -50,13 +51,20 @@ class Home extends React.Component {
 	}
 
 	performQuery = () => {
+		this.setState({loading_results: true})
 		axios.post('/query', {
 			user_keywords: this.state.user_keywords,
 			categories: this.state.categories,
 		})
 			.then((response) => {
 				console.log(response)
+				this.setState({lodating_results: false})
+				visualizeResults(response)
 			})
+	}
+
+	visualizeResults = (response) => {
+
 	}
 
   render () {
@@ -129,7 +137,14 @@ class Home extends React.Component {
 							})}
 							</Nav>
 
-						<Button type="button" className="btn btn-info" onClick={this.performQuery}> Go! </Button>
+							<Button type="button" className="btn btn-info" onClick={this.performQuery}> Go! </Button>
+
+							{ /* Create a loading circle */
+								(this.state.loading_results)
+									? (<i className="fa fa-spinner fa-spin" style="font-size:24px"></i>)
+									: (<i></i>)
+							}
+
 						</div>
 					</div>
 				</form>

@@ -7,6 +7,7 @@ import json
 
 from get_sentiment import *
 from jaccard import *
+from cat_cosine import *
 
 # Configure Flask app
 app = Flask(__name__, static_url_path='/static')
@@ -36,9 +37,11 @@ def query():
   data = json.loads(request.data)
   print("Data: ", data)
 
-  # Peform jaccard similarity analysis on the keywords that the user input
   jaccard_results = {}
   company_sentiments = {}
+  cosine_results = []
+
+  # Peform jaccard similarity analysis on the keywords that the user input
   if data["user_keywords"] != "":
     jaccard_results = jaccard(data["user_keywords"])
     print("Jaccard results: ", jaccard_results)
@@ -49,9 +52,17 @@ def query():
       sentiment_data = twitter_analyzer.get_company_sentiment_descriptor(company_name)
       company_sentiments[ticker] = sentiment_data
 
+  # Perform cosine similarity analysis on the categories the user chose
+  if data["categories"] != {}:
+    categories = data["categories"].keys()
+    print("Categories: ", categories)
+    cosine_results = cosine_analysis(categories)
+
+  # Create response to be sent back to client-side
   response = {
       "jaccard_results": jaccard_results,
-      "company_sentiments": company_sentiments
+      "company_sentiments": company_sentiments,
+      "cosine_results": cosine_results
   }
 
   return jsonify(response)
