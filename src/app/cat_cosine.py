@@ -40,19 +40,18 @@ def cosine_sim(query, mat):
 
   return cos_sim
 
-def get_top10(mat):
+def get_topK(mat, k):
   sum_arr = np.sum(mat,axis=1)
-  max_ind = np.argpartition(sum_arr, -10)[-10:]
+  max_ind = np.argpartition(sum_arr, -k)[-k:]
   top_comp = []
   for i in max_ind:
     top_comp.append(comp_lst[i])
   return top_comp
 
-
-def cosine_analysis(query):
+def cosine_analysis(query, k=10):
   matrix = company_cat_mat
   cos = cosine_sim(query, matrix)
-  return get_top10(cos)
+  return get_topK(cos)
 
   # Debugging
   # print(top_10)
