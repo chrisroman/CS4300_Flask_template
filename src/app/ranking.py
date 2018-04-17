@@ -23,6 +23,6 @@ def get_ranking(categories, keywords, k=10):
 		else:
 			company_points_dict[symbol] = points	
 			
-	return sorted(company_points_dict, k=A.get)[::-1][:10]
+	return sorted(company_points_dict, key=company_points_dict.get)[::-1][:10]
 		
 	

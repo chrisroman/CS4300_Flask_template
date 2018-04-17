@@ -50,7 +50,7 @@ def query():
 
     # Do sentiment analysis on all of the returned companies
     for ticker in jaccard_results:
-      company_name = jaccard_results[ticker][1]
+      company_name = jaccard_results[ticker][2]
       sentiment_data = twitter_analyzer.get_company_sentiment_descriptor(company_name)
       company_sentiments[ticker] = sentiment_data
 

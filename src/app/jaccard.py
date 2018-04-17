@@ -44,13 +44,13 @@ def jaccard(query, k=10):
     expand = expand_query(query)
     query = set(expand)
     matches = [] 
-    for k in company_desc:
-        des = TreebankWordTokenizer().tokenize(company_desc[k].lower())
+    for ticker in company_desc:
+        des = TreebankWordTokenizer().tokenize(company_desc[ticker].lower())
         inte = set(des).intersection(query)
         uni = set(des).union(query)
         jac = float(len(inte)) / len(uni)
         if inte:
-            matches.append((jac,k))
+            matches.append((jac,ticker))
 
     sort_lst = sorted(matches, key=lambda x: x[0])
 

@@ -69,7 +69,7 @@ class Home extends React.Component {
 	visualizeResults = (response) => {
 		const data = response.data
 		const sentiments_view = (
-			<div style={{'background-color': 'white', overflow: 'auto', height: '300px'}}>
+			<div style={{backgroundColor: 'white', overflow: 'auto', height: '300px'}}>
 				<div>
 					<ul key="PLACEHOLDER" style={{color: 'black'}}> {
 						Object.keys(data.company_sentiments).map((ticker) => {
@@ -93,11 +93,11 @@ class Home extends React.Component {
 				<form className="global-search">
 					<h1>CompanySearch</h1>
 					<div>
-						<Input placeholder="Enter your keywords here"
+						<Input placeholder="Enter your keywords HERE"
 							onChange={this.handleChange}
 							className="form-control"
 							name="user_keywords"
-							style={{'font-size': '20px'}}/>
+							style={{fontSize: '20px'}}/>
 					</div>
 
 					<div className="global-search">

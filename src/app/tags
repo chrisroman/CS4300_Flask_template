@@ -20,7 +20,7 @@ config	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/_
 CORS	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
 cors	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^cors = CORS(app)$/;"	v	language:Python
 CORS	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
-cosine_analysis	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def cosine_analysis(query):$/;"	f	language:Python
+cosine_analysis	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def cosine_analysis(query, k=10):$/;"	f	language:Python
 cosine_sim	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def cosine_sim(query, mat):$/;"	f	language:Python
 cross_origin	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
 cross_origin	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask_cors import CORS, cross_origin$/;"	i	language:Python
@@ -37,7 +37,8 @@ Flask	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/_
 Flask	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 get_company_sentiment_descriptor	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_company_sentiment_descriptor(self, company_name):$/;"	m	language:Python	class:TwitterClient
 get_company_sentiment_descriptor	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def get_company_sentiment_descriptor(self, company_name):$/;"	m	language:Python	class:TwitterClient
-get_top10	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def get_top10(mat):$/;"	f	language:Python
+get_ranking	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/ranking.py	/^def get_ranking(categories, keywords, k=10):$/;"	f	language:Python
+get_topK	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def get_topK(mat, k):$/;"	f	language:Python
 get_tweets	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_tweets(self, query, count = 10):$/;"	m	language:Python	class:TwitterClient
 get_tweets	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/get_sentiment.py	/^    def get_tweets(self, query, count = 10):$/;"	m	language:Python	class:TwitterClient
 get_tweet_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def get_tweet_sentiment(self, tweet):$/;"	m	language:Python	class:TwitterClient
@@ -45,7 +46,7 @@ get_tweet_sentiment	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react
 glob	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^import glob$/;"	i	language:Python
 index	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^def index():$/;"	f	language:Python
 index	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/__init__.py	/^def index():$/;"	f	language:Python
-jaccard	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jaccard.py	/^def jaccard(query): $/;"	f	language:Python
+jaccard	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jaccard.py	/^def jaccard(query, k=10): $/;"	f	language:Python
 jaccard	/Users/chrisroman/CornellWork/Spring_2018/CS4300/flask-react-bp/src/app/jaccard.py	/^def jaccard(query): $/;"	f	language:Python
 json	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^import json$/;"	i	language:Python
 jsonify	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python

@@ -51,7 +51,7 @@ def get_topK(mat, k):
 def cosine_analysis(query, k=10):
   matrix = company_cat_mat
   cos = cosine_sim(query, matrix)
-  return get_topK(cos)
+  return get_topK(cos, k)
 
   # Debugging
   # print(top_10)
