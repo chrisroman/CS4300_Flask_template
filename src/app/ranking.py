@@ -18,7 +18,7 @@ def get_ranking(categories, keywords, k=10):
 			
 	for cnt, cosine_result in enumerate(cosine_results):
 		symbol = cosine_result
-		points = 500 - cnt
+		points = (500 - cnt) * 0.2
 		if symbol in company_points_dict:
 			company_points_dict[symbol] += points
 		else:
