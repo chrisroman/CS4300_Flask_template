@@ -8,6 +8,7 @@ import json
 from get_sentiment import *
 from jaccard import *
 from cat_cosine import *
+from ranking import *
 
 # Configure Flask app
 app = Flask(__name__, static_url_path='/static')
@@ -40,6 +41,7 @@ def query():
   jaccard_results = {}
   company_sentiments = {}
   cosine_results = []
+  final_ranked_results = []
 
   # Peform jaccard similarity analysis on the keywords that the user input
   if data["user_keywords"] != "":
@@ -57,12 +59,17 @@ def query():
     categories = data["categories"].keys()
     print("Categories: ", categories)
     cosine_results = cosine_analysis(categories)
+	
+  # Get final ranking
+  if data["categories"] != {} and data["user_keywords"] != "":
+	final_ranked_results = get_ranking(categories, data["user_keywords"])
 
   # Create response to be sent back to client-side
   response = {
       "jaccard_results": jaccard_results,
       "company_sentiments": company_sentiments,
-      "cosine_results": cosine_results
+      "cosine_results": cosine_results,
+	  "final_ranking": final_ranked_results
   }
 
   return jsonify(response)

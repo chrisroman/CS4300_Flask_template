@@ -55,10 +55,10 @@ def jaccard(query, k=10):
     sort_lst = sorted(matches, key=lambda x: x[0])
 
     results = {}
-    for i in range(len(matches)):
+    for i in range(k):
         try:
             jac_score, symbol = matches[i]
-            results[symbol] = (jac_score, ticker_to_name[symbol], company_desc[symbol])
+            results[symbol] = (jac_score, symbol, ticker_to_name[symbol], company_desc[symbol])
         except:
             return results
 
