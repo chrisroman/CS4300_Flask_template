@@ -93,7 +93,7 @@ class Home extends React.Component {
 				<form className="global-search">
 					<h1>CompanySearch</h1>
 					<div>
-						<Input placeholder="Enter your keywords HERE"
+						<Input placeholder="Enter your keywords here..."
 							onChange={this.handleChange}
 							className="form-control"
 							name="user_keywords"
