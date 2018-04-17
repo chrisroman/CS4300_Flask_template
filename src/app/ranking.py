@@ -4,6 +4,7 @@ from cat_cosine import *
 
 def get_ranking(categories, keywords, k=10):
 	jaccard_results = jaccard(keywords, k=500)
+	jaccard_results = sorted(jaccard_results.items(), key=lambda x: x[1][0])
 	cosine_results = cosine_analysis(categories, k=500)
 	company_points_dict = {}
 	
