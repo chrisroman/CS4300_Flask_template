@@ -160,6 +160,9 @@ class Home extends React.Component {
 
 							<Button type="button" className="btn btn-info" onClick={this.performQuery}> Go! </Button>
 
+							{(this.state.loading_results)
+								? (<div className="loader"></div>)
+								: (<div></div>)}
 						</div>
 
 						{this.state.visuals.map((elt) => {return elt})}
