@@ -34,7 +34,7 @@ def build_vectorizer(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):
       ...
     }
 '''
-def jaccard(query): 
+def jaccard(query, k=10): 
     n_feats = 100
     doc_by_vocab = np.empty([len(company_desc.keys()), n_feats])
     tfidf_vec = build_vectorizer(n_feats, "english")
@@ -55,10 +55,10 @@ def jaccard(query):
     sort_lst = sorted(matches, key=lambda x: x[0])
 
     results = {}
-    for i in range(0,10):
+    for i in range(k):
         try:
             jac_score, symbol = matches[i]
-            results[symbol] = (jac_score, ticker_to_name[symbol], company_desc[symbol])
+            results[symbol] = (jac_score, symbol, ticker_to_name[symbol], company_desc[symbol])
         except:
             return results
 
