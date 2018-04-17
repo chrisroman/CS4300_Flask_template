@@ -2,6 +2,8 @@
 import React from 'react';
 import Background from '../../public/images/Stock_Market_Background5.png';
 import css from '../../public/css/home.css'
+import '../../public/css/normalize.css'
+import '../../public/css/skeleton.css'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Button } from 'reactstrap';
@@ -18,6 +20,7 @@ class Home extends React.Component {
 			categories: {},
 			user_keywords: "",
 			loading_results: false,
+			visuals: [],
 		}
 	}
 
@@ -64,7 +67,23 @@ class Home extends React.Component {
 	}
 
 	visualizeResults = (response) => {
-
+		const data = response.data
+		const sentiments_view = (
+			<div style={{'background-color': 'white', overflow: 'auto', height: '300px'}}>
+				<div>
+					<ul key="PLACEHOLDER" style={{color: 'black'}}> {
+						Object.keys(data.company_sentiments).map((ticker) => {
+							const info = data.company_sentiments[ticker]
+							return (<li key={ticker}>{ticker}: {info[0]}, {info[1]}</li>)
+						})
+					}
+					</ul>
+				</div>
+			</div>
+		)
+		let new_visuals = this.state.visuals
+		new_visuals.push(sentiments_view)
+		this.setState({visuals: new_visuals})
 	}
 
   render () {
@@ -77,7 +96,8 @@ class Home extends React.Component {
 						<Input placeholder="Enter your keywords here"
 							onChange={this.handleChange}
 							className="form-control"
-							name="user_keywords" />
+							name="user_keywords"
+							style={{'font-size': '20px'}}/>
 					</div>
 
 					<div className="global-search">
@@ -140,6 +160,9 @@ class Home extends React.Component {
 							<Button type="button" className="btn btn-info" onClick={this.performQuery}> Go! </Button>
 
 						</div>
+
+						{this.state.visuals.map((elt) => {return elt})}
+
 					</div>
 				</form>
 
