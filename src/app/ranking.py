@@ -9,7 +9,7 @@ def get_ranking(categories, keywords, k=10):
 	company_points_dict = {}
 	
 	for cnt, jaccard_result in enumerate(jaccard_results):
-		symbol = jaccard_result[1]
+		symbol = jaccard_result[1][1]
 		points = 500 - cnt
 		if symbol in company_points_dict:
 			company_points_dict[symbol] += points

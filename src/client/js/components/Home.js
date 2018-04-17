@@ -61,15 +61,16 @@ class Home extends React.Component {
 		})
 			.then((response) => {
 				console.log(response)
-				this.setState({lodating_results: false})
+				this.setState({loading_results: false})
 				this.visualizeResults(response)
 			})
 	}
 
 	visualizeResults = (response) => {
+		this.setState({visuals: []})
 		const data = response.data
 		const sentiments_view = (
-			<div style={{backgroundColor: 'white', overflow: 'auto', height: '300px'}}>
+			<div style={{backgroundColor: 'white', overflow: 'auto', height: '300px', width:'80%', margin:'0 auto'}}>
 				<div>
 					<ul key="PLACEHOLDER" style={{color: 'black'}}> {
 						Object.keys(data.company_sentiments).map((ticker) => {
@@ -167,7 +168,6 @@ class Home extends React.Component {
 				</form>
 
 				<div className="bottomcorner">
-					<p>Project Name: {this.state.project_name}</p>
 					<p>Student Names: {this.state.names}</p>
 				</div>
 

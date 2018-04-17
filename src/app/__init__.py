@@ -48,12 +48,6 @@ def query():
     jaccard_results = jaccard(data["user_keywords"])
     print("Jaccard results: ", jaccard_results)
 
-    # Do sentiment analysis on all of the returned companies
-    for ticker in jaccard_results:
-      company_name = jaccard_results[ticker][2]
-      sentiment_data = twitter_analyzer.get_company_sentiment_descriptor(company_name)
-      company_sentiments[ticker] = sentiment_data
-
   # Perform cosine similarity analysis on the categories the user chose
   if data["categories"] != {}:
     categories = data["categories"].keys()
@@ -64,12 +58,18 @@ def query():
   if data["categories"] != {} and data["user_keywords"] != "":
 	final_ranked_results = get_ranking(categories, data["user_keywords"])
 
+  # Do sentiment analysis on all of the returned companies
+  for ticker in final_ranked_results:
+    company_name = ticker_to_name[ticker]
+    sentiment_data = twitter_analyzer.get_company_sentiment_descriptor(company_name)
+    company_sentiments[ticker] = sentiment_data
+
   # Create response to be sent back to client-side
   response = {
       "jaccard_results": jaccard_results,
       "company_sentiments": company_sentiments,
       "cosine_results": cosine_results,
-	  "final_ranking": final_ranked_results
+      "final_ranking": final_ranked_results
   }
 
   return jsonify(response)
