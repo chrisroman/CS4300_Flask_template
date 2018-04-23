@@ -8,13 +8,6 @@
 		padding: 20px 0;
 		text-align:center;
 	}
-	body {
-		padding-bottom: 15px;
-		background-image: url('/static/images/Stock_Market_Background5.png');
-		background-size: cover;
-		height: 100%;
-		color: #FFFFFF;
-	}
 	h1 {
 		font-size: 55px;
 		font-family: Sans-Serif;

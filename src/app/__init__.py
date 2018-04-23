@@ -59,7 +59,8 @@ def query():
 	final_ranked_results = get_ranking(categories, data["user_keywords"])
 
   # Do sentiment analysis on all of the returned companies
-  for ticker in final_ranked_results:
+  NUM_COMPANIES = 3 # Set to a low amount for testing
+  for ticker in final_ranked_results[:NUM_COMPANIES]:
     company_name = ticker_to_name[ticker]
     sentiment_data = twitter_analyzer.get_company_sentiment_descriptor(company_name)
     company_sentiments[ticker] = sentiment_data

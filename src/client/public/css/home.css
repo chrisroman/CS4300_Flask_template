@@ -4,15 +4,18 @@
 	}
 }
 @media (min-width:400px){
-	.global-search {
-		padding: 20px 0;
-		text-align:center;
-	}
 	body {
-		padding-bottom: 15px;
+		height: 100%;
+		margin: 0;
+	}
+	.header {
 		background-image: url('/static/images/Stock_Market_Background5.png');
 		background-size: cover;
-		height: 100%;
+		height: 50vh;
+		min-height: 400px;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center;
 		color: #FFFFFF;
 	}
 	h1 {
@@ -22,7 +25,7 @@
 	}
 	.global-search {
 		text-align:center;
-		padding:10px;
+		padding-top: 10px;
 	}
 	.category-list{
 		text-align:center;
@@ -35,9 +38,8 @@
 		height: 40px;
 		display:inline-block;
 	}
-	.bottomcorner{
-		position: fixed;
-		bottom: .5%;
+	.topcorner{
+		top: .5%;
 		right: .5%;
 		color: #FFFFFF;
 		text-align: right;
@@ -61,4 +63,38 @@
 		100% { transform: rotate(360deg);  }
 
 	}
+	.results {
+		position: absolute;
+		margin: auto;
+		display: inline-block;
+	}
+	.ul-results {
+		list-style-type: none;
+		width: 70%;
+		margin: auto;
+	}
+
+	.h3-results {
+		font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+	}
+
+	#results li img {
+		float: left;
+		margin: 0 15px 0 0;
+	}
+
+	#results li p {
+		font: 200 12px/1.5 Georgia, Times New Roman, serif;
+	}
+
+	.li-results {
+		padding: 10px;
+		overflow: auto;
+	}
+
+	.li-results:hover {
+		background: #eee;
+		cursor: pointer;
+	}
+
 }
