@@ -212,11 +212,25 @@ class Home extends React.Component {
 						if (info === undefined)
 							return (<div></div>)
 						return (
-							<li key={ticker} className="li-results">
-								{ticker}: {info[0]}, {info[1]}
-								<br></br>
-								<img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`}></img>
-							</li>
+							<li key={ticker}>
+							  <div class="row" style={{"align": "center", "margin": "0 auto"}}>
+							    <div align="center">
+						          <br></br>
+						          <h4> {ticker} </h4>
+						          <br></br>
+						        </div>
+							  </div>
+							  <div class="row">
+							    <div class="six columns">
+							      <div class="image-container">
+							        <img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`} width="80%"></img>
+							      </div>
+							    </div>
+							    <div class="six columns">
+							      {info[0]}, {info[1]}
+							    </div>
+							  </div>
+							</li>	
 						)
 					})
 				}
@@ -311,6 +325,14 @@ class Home extends React.Component {
 
 					</div>
 				</form>
+				<div>
+					{(this.state.loading_results)
+						? (<div className="loader"></div>)
+						: (<div></div>)}
+				</div>
+				<div className="results">
+					{this.state.visuals.map((elt) => {return elt})}
+				</div>
 			</div>
 
 
