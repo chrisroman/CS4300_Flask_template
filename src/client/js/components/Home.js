@@ -206,11 +206,14 @@ class Home extends React.Component {
 		const sentiments_view = (
 			<div style={{overflow: 'auto', margin:'auto'}}>
 				<ul key="PLACEHOLDER" className="ul-results"> {
-					Object.keys(data.company_sentiments).map((ticker) => {
+					data.final_ranking.map((ticker) => {
 						const info = data.company_sentiments[ticker]
+						if (info === undefined)
+							return (<div></div>)
 						return (
 							<li key={ticker} className="li-results">
 								{ticker}: {info[0]}, {info[1]}
+								<br></br>
 								<img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`}></img>
 							</li>
 						)

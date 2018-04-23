@@ -38,6 +38,7 @@ json	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/
 jsonify	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 jsonify	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 make_path	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def make_path(filename):$/;"	f	language:Python
+make_path	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^def make_path(filename):$/;"	f	language:Python
 make_response	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 make_response	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^from flask import Flask, render_template, jsonify, make_response, request$/;"	i	language:Python
 not_found	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^def not_found(error):$/;"	f	language:Python
@@ -52,6 +53,7 @@ os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__in
 os	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^import os$/;"	i	language:Python
 pickle	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^import pickle$/;"	i	language:Python
 pickle	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jaccard.py	/^import pickle $/;"	i	language:Python
+pickle	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^import pickle$/;"	i	language:Python
 query	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^def query():$/;"	f	language:Python
 query	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^def query():$/;"	f	language:Python
 re	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^import re$/;"	i	language:Python
@@ -73,4 +75,5 @@ tweepy	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/
 TwitterClient	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^class TwitterClient(object):$/;"	c	language:Python
 twitter_analyzer	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^twitter_analyzer = TwitterClient()$/;"	v	language:Python
 twitter_analyzer	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^twitter_analyzer = TwitterClient()$/;"	v	language:Python
+t_comp	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^t_comp = pickle.load(open(make_path("t_comp.p"), "rb" ))$/;"	v	language:Python
 __init__	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/get_sentiment.py	/^    def __init__(self):$/;"	m	language:Python	class:TwitterClient

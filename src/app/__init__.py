@@ -4,6 +4,7 @@ from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 import config
 import json
+import pickle
 
 from get_sentiment import *
 from jaccard import *
@@ -23,6 +24,14 @@ db = SQLAlchemy(app)
 # create (Twitter) sentiment analyzer
 twitter_analyzer = TwitterClient()
 
+# Load map of ticker to company names
+# Helper function to get the correct path
+def make_path(filename):
+  dir_path = os.path.dirname(os.path.realpath(__file__))
+  return os.path.join(dir_path, filename)
+
+t_comp = pickle.load(open(make_path("t_comp.p"), "rb" ))
+
 # Import + Register Blueprints
 # from app.TODO import TODO as TODO # pylint: disable=C0413
 # app.register_blueprint(TODO)
@@ -35,6 +44,7 @@ def index():
 @app.route('/query', methods=['POST'])
 #@cross_origin()
 def query():
+  print(t_comp["AAPL"])
   data = json.loads(request.data)
   print("Data: ", data)
 
