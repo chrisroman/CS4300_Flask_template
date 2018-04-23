@@ -3,6 +3,7 @@ import React from 'react';
 //import css from '../../public/css/home.css'
 //import '../../public/css/normalize.css'
 //import '../../public/css/skeleton.css'
+import '../../public/css/styles.css'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Button } from 'reactstrap';
@@ -205,7 +206,6 @@ class Home extends React.Component {
 		this.setState({visuals: []})
 		const data = response.data
 		const sentiments_view = (
-			<div style={{overflow: 'auto', margin:'auto'}}>
 				<ul key="PLACEHOLDER" className="ul-results"> {
 					data.final_ranking.map((ticker) => {
 						const info = data.company_sentiments[ticker]
@@ -213,20 +213,20 @@ class Home extends React.Component {
 							return (<div></div>)
 						return (
 							<li key={ticker}>
-							  <div class="row" style={{"align": "center", "margin": "0 auto"}}>
+							  <div className="row" style={{"align": "center", "margin": "0 auto"}}>
 							    <div align="center">
 						          <br></br>
 						          <h4> {ticker} </h4>
 						          <br></br>
 						        </div>
 							  </div>
-							  <div class="row">
-							    <div class="six columns">
-							      <div class="image-container">
+							  <div className="row">
+							    <div className="six columns">
+							      <div className="image-container">
 							        <img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`} width="80%"></img>
 							      </div>
 							    </div>
-							    <div class="six columns">
+							    <div className="six columns">
 							      {info[0]}, {info[1]}
 							    </div>
 							  </div>
@@ -235,7 +235,6 @@ class Home extends React.Component {
 					})
 				}
 				</ul>
-			</div>
 		)
 		let new_visuals = this.state.visuals
 		new_visuals.push(sentiments_view)
@@ -330,13 +329,47 @@ class Home extends React.Component {
 						? (<div className="loader"></div>)
 						: (<div></div>)}
 				</div>
-				<div className="results">
-					{this.state.visuals.map((elt) => {return elt})}
-				</div>
 			</div>
 
 
-			<Slideshow />
+			{/* <Slideshow /> */}
+			<div className="Slideshow">
+
+			<h1>CSS Slider</h1>
+			<h2>Pure CSS Slider. No JS. Because it is possieble!</h2>
+			<div className="csslider infinity" id="slider1">
+				<input type="radio" name="slides" id="slides_1" defaultChecked/>
+				<input type="radio" name="slides" id="slides_2"/>
+				<input type="radio" name="slides" id="slides_3"/>
+				<input type="radio" name="slides" id="slides_4"/>
+				<input type="radio" name="slides" id="slides_5"/>
+				<input type="radio" name="slides" id="slides_6"/>
+
+
+				{this.state.visuals.map((elt) => {return elt})}
+
+				<div className="arrows">
+					<label htmlFor="slides_1"></label>
+					<label htmlFor="slides_2"></label>
+					<label htmlFor="slides_3"></label>
+					<label htmlFor="slides_4"></label>
+					<label htmlFor="slides_5"></label>
+					<label htmlFor="slides_6"></label>
+					<label className="goto-first" htmlFor="slides_1"></label>
+					<label className="goto-last" htmlFor="slides_6"></label>
+				</div>
+				<div className="navigation"> 
+					<div>
+						<label htmlFor="slides_1"></label>
+						<label htmlFor="slides_2"></label>
+						<label htmlFor="slides_3"></label>
+						<label htmlFor="slides_4"></label>
+						<label htmlFor="slides_5"></label>
+						<label htmlFor="slides_6"></label>
+					</div>
+				</div>
+			</div><a href="https://github.com/drygiel" target="_blank"></a>
+		</div>
 
 			</div>
 		);
