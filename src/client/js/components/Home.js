@@ -1,13 +1,14 @@
 // @flow
 import React from 'react';
-import css from '../../public/css/home.css'
-import '../../public/css/normalize.css'
-import '../../public/css/skeleton.css'
+//import css from '../../public/css/home.css'
+//import '../../public/css/normalize.css'
+//import '../../public/css/skeleton.css'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Button } from 'reactstrap';
 import { InputGroup, Input } from 'reactstrap';
 import axios from 'axios'
+import Slideshow from './Slideshow'
 
 class Home extends React.Component {
 	constructor (props) {
@@ -230,7 +231,8 @@ class Home extends React.Component {
   render () {
 		return (
 			<div className="Home">
-				<div className="header">
+
+			<div className="header">
 
 				<div className="topcorner">
 					<p>Student Names: {this.state.names}</p>
@@ -291,16 +293,16 @@ class Home extends React.Component {
 
 						<div className="category-list">
 							<Nav card={true} justified={true}>
-							{Object.keys(this.state.categories).map((category) => {
-								return (
-									<NavItem key={category}>
-										<Button type="button" color="success" size="sm" name={category} onClick={this.removeCategory}>
-											{category + '  '}
-											<i className="fa fa-times"></i>
-										</Button>
-									</NavItem>
-								)
-							})}
+								{Object.keys(this.state.categories).map((category) => {
+									return (
+										<NavItem key={category}>
+											<Button type="button" color="success" size="sm" name={category} onClick={this.removeCategory}>
+												{category + '  '}
+												<i className="fa fa-times"></i>
+											</Button>
+										</NavItem>
+									)
+								})}
 							</Nav>
 
 							<Button type="button" className="btn btn-info" onClick={this.performQuery}> Go! </Button>
@@ -309,87 +311,11 @@ class Home extends React.Component {
 
 					</div>
 				</form>
-				</div>
+			</div>
 
-				<div>
-					{(this.state.loading_results)
-						? (<div className="loader"></div>)
-						: (<div></div>)}
-				</div>
-				<div className="results">
-					{this.state.visuals.map((elt) => {return elt})}
-				</div>
 
-				<div className="header__main">
-					<div className="slider">
-						<svg className="slider__mask" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="0" height="0">
-							<defs>
-								<pattern id="bg1" patternUnits="userSpaceOnUse" width="1920" height="1080" viewBox="0 0 1920 1080">
-									<image xlinkHref="https://images.unsplash.com/photo-1454328911520-ccf83f1ef41d?dpr=1&auto=format&fit=crop&w=2000&h=2000&q=80&cs=tinysrgb&crop=&bg=" width="100%" height="100%"/>
-								</pattern>
-								<pattern id="pattern1l" patternUnits="userSpaceOnUse" width="562" height="366" viewBox="0 0 562 366">
-									<image xlinkHref="https://images.unsplash.com/photo-1454328911520-ccf83f1ef41d?dpr=1&auto=format&fit=crop&w=600&h=600&q=80&cs=tinysrgb&crop=&bg=" width="600px" height="600px"/>
-								</pattern>
-								<pattern id="pattern1r" patternUnits="userSpaceOnUse" x="365px" width="562" height="366" viewBox="0 0 562 366">
-									<image xlinkHref="https://images.unsplash.com/photo-1497215842964-222b430dc094?dpr=1&auto=format&fit=crop&w=600&h=600&q=80&cs=tinysrgb&crop=&bg=" width="600px" height="600px"/>
-								</pattern>
+			<Slideshow />
 
-								<pattern id="bg2" patternUnits="userSpaceOnUse" width="1920" height="1080" viewBox="0 0 1920 1080">
-									<image xlinkHref="https://images.unsplash.com/photo-1497377825569-02ad2f9edb81?dpr=1&auto=format&fit=crop&w=2000&h=2000&q=80&cs=tinysrgb&crop=&bg=" width="100%" height="100%"/>
-								</pattern>
-								<pattern id="pattern2l" patternUnits="userSpaceOnUse" width="562" height="366" viewBox="0 0 562 366">
-									<image xlinkHref="https://images.unsplash.com/photo-1497377825569-02ad2f9edb81?dpr=1&auto=format&fit=crop&w=600&h=600&q=80&cs=tinysrgb&crop=&bg=" width="600px" height="600px"/>
-								</pattern>
-								<pattern id="pattern2r" patternUnits="userSpaceOnUse" x="365" width="562" height="366" viewBox="0 0 562 366">
-									<image xlinkHref="https://images.unsplash.com/photo-1496060169243-453fde45943b?dpr=1&auto=format&fit=crop&w=600&h=600&q=80&cs=tinysrgb&crop=&bg=" width="600px" height="600px"/>
-								</pattern>
-							</defs>
-						</svg>
-
-						<div className="slide" id="slide-1">
-							<svg className="slide__bg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1920" height="1080">
-								<rect x="0" y="0" width="1920" height="1080" fill="url(#bg1)" />
-							</svg>
-							<div className="slide__images">
-								<div className="slide__image slide__image--left">
-									<svg viewBox="0 0 900 365" version="1.1"	xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" x="0px" y="0px">
-										<path d="M 0 0 L 0 365 L 351.2382 365 L 562 0 L 0 0 Z" fill="url(#pattern1l)"/>
-									</svg>
-								</div>
-
-								<div className="slide__image slide__image--right">
-									<svg viewBox="0 0 900 365" version="1.1"	xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" x="0px" y="0px">
-										<path d="M 900 365 L 900 0 L 548.7618 0 L 338 365 L 900 365 Z" fill="url(#pattern1r)"/>
-									</svg>
-								</div>
-							</div>
-						</div>
-
-						<div className="slide" id="slide-2">
-							<svg className="slide__bg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1920" height="1080">
-								<rect x="0" y="0" width="1920" height="1080" fill="url(#bg2)" />
-							</svg>
-							<div className="slide__images">
-								<div className="slide__image slide__image--left">
-									<svg viewBox="0 0 900 365" version="1.1"	xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" x="0px" y="0px">
-										<path d="M 0 0 L 0 365 L 351.2382 365 L 562 0 L 0 0 Z" fill="url(#pattern2l)"/>
-									</svg>
-								</div>
-
-								<div className="slide__image slide__image--right">
-									<svg viewBox="0 0 900 365" version="1.1"	xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" x="0px" y="0px">
-										<path d="M 900 365 L 900 0 L 548.7618 0 L 338 365 L 900 365 Z" fill="url(#pattern2r)"/>
-									</svg>
-								</div>
-							</div>
-						</div>
-
-						<div className="slider__pagination">
-							<a href="#slide-1" className="button">Slide 1</a>
-							<a href="#slide-2" className="button">Slide 2</a>
-						</div>
-					</div>
-				</div>
 			</div>
 		);
   }
