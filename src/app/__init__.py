@@ -55,19 +55,20 @@ def query():
   final_ranked_results = []
 
   # Peform jaccard similarity analysis on the keywords that the user input
-  if data["user_keywords"] != "":
-    jaccard_results = jaccard(data["user_keywords"])
-    print("Jaccard results: ", jaccard_results)
+  # if data["user_keywords"] != "":
+  #   jaccard_results = jaccard(data["user_keywords"])
+  #   print("Jaccard results: ", jaccard_results)
 
-  # Perform cosine similarity analysis on the categories the user chose
-  if data["categories"] != {}:
-    categories = data["categories"].keys()
-    print("Categories: ", categories)
-    cosine_results = cosine_analysis(categories)
+  categories = data["categories"].keys()
+  # # Perform cosine similarity analysis on the categories the user chose
+  # if data["categories"] != {}:
+  #   categories = data["categories"].keys()
+  #   print("Categories: ", categories)
+  #   cosine_results = cosine_analysis(categories)
 	
   # Get final ranking
   if data["categories"] != {} and data["user_keywords"] != "":
-	final_ranked_results = get_ranking(categories, data["user_keywords"])
+    final_ranked_results = get_ranking(categories, data["user_keywords"])
 
   # Do sentiment analysis on all of the returned companies
   NUM_COMPANIES = 3 # Set to a low amount for testing
@@ -78,9 +79,9 @@ def query():
 
   # Create response to be sent back to client-side
   response = {
-      "jaccard_results": jaccard_results,
+      #"jaccard_results": jaccard_results,
       "company_sentiments": company_sentiments,
-      "cosine_results": cosine_results,
+      #"cosine_results": cosine_results,
       "final_ranking": final_ranked_results
   }
 
