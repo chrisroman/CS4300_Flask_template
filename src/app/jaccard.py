@@ -35,12 +35,6 @@ def build_vectorizer(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):
     }
 '''
 def jaccard(query, k=10): 
-    n_feats = 100
-    doc_by_vocab = np.empty([len(company_desc.keys()), n_feats])
-    tfidf_vec = build_vectorizer(n_feats, "english")
-    doc_by_vocab = tfidf_vec.fit_transform([v for v in company_desc.values()]).toarray()
-    index_to_vocab = {i:v for i, v in enumerate(tfidf_vec.get_feature_names())}
-
     expand = expand_query(query)
     query = set(expand)
     matches = [] 

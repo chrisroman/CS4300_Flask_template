@@ -31,6 +31,7 @@ def make_path(filename):
   return os.path.join(dir_path, filename)
 
 t_comp = pickle.load(open(make_path("t_comp.p"), "rb" ))
+company_twidata = pickle.load(open(make_path("company_twidata.p"), "rb"))
 
 # Import + Register Blueprints
 # from app.TODO import TODO as TODO # pylint: disable=C0413
@@ -70,10 +71,10 @@ def query():
 
   # Do sentiment analysis on all of the returned companies
   NUM_COMPANIES = 3 # Set to a low amount for testing
-  for ticker in final_ranked_results[:NUM_COMPANIES]:
+  for ticker in final_ranked_results:
     company_name = ticker_to_name[ticker]
-    sentiment_data = twitter_analyzer.get_company_sentiment_descriptor(company_name)
-    company_sentiments[ticker] = sentiment_data
+    sentiment_data = company_twidata[company_name]
+    company_sentiments[ticker] = sentiment_data + (company_name,)
 
   # Create response to be sent back to client-side
   response = {
