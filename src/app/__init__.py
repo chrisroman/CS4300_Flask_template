@@ -10,6 +10,7 @@ from get_sentiment import *
 from jaccard import *
 from cat_cosine import *
 from ranking import *
+from clusteredcompanies import *
 
 # Configure Flask app
 app = Flask(__name__, static_url_path='/static')
@@ -67,8 +68,11 @@ def query():
   #   cosine_results = cosine_analysis(categories)
 	
   # Get final ranking
-  if data["categories"] != {} and data["user_keywords"] != "":
-    final_ranked_results = get_ranking(categories, data["user_keywords"])
+  # if data["categories"] != {} and data["user_keywords"] != "":
+  #   final_ranked_results = get_ranking(categories, data["user_keywords"])
+
+  if data["user_keywords"] != "":
+    final_ranked_results = get_sim_companies(data["user_keywords"])
 
   # Do sentiment analysis on all of the returned companies
   NUM_COMPANIES = 3 # Set to a low amount for testing

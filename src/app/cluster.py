@@ -1,3 +1,8 @@
+import os
+import nltk
+dir_path = os.path.dirname(os.path.realpath(__file__))
+nltk.data.path.append(os.path.join(dir_path, './nltk_data'))
+
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
@@ -8,11 +13,17 @@ import string
 import operator
 import pickle
 
-tech_desc = pickle.load(open( "c_des.p", "rb"))
-company_array = []
-for ticker, desc in tech_desc.items():
-	company_array.append(desc)
+# Helper function to get the correct path
+def make_path(filename):
+  dir_path = os.path.dirname(os.path.realpath(__file__))
+  return os.path.join(dir_path, filename)
 
+tech_desc = pickle.load(open(make_path("c_des.p"), "rb" ))
+pair_array = []
+for ticker, desc in tech_desc.items():
+	pair_array.append((ticker,desc))
+pair_array = sorted(pair_array, key=lambda x: x[0])
+company_array = [pair[1] for pair in pair_array]
 
 stop = set(stopwords.words('english'))
 exclude = set(string.punctuation)
@@ -49,4 +60,6 @@ tfidf_matrix = vectorizer.fit_transform(company_array_clean).todense()
 # We can play around with the number of clusters
 kmeans = KMeans(n_clusters=10, random_state=0).fit(tfidf_matrix)
 
-print(kmeans.labels_[:10])
+def get_labels():
+	return kmeans.labels_
+

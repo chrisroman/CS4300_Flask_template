@@ -1,3 +1,8 @@
+import os
+import nltk
+dir_path = os.path.dirname(os.path.realpath(__file__))
+nltk.data.path.append(os.path.join(dir_path, './nltk_data'))
+
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.corpus import stopwords
