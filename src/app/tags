@@ -8,6 +8,7 @@ clean_tweet	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src
 company_cat_mat	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_cat_mat = pickle.load(open(make_path("company_category_mat.p"),"rb"))$/;"	v	language:Python
 company_des	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^company_des = pickle.load(open(make_path("c_des.p"), "rb" ))$/;"	v	language:Python
 company_desc	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/jaccard.py	/^company_desc = pickle.load(open(os.path.join(dir_path, "c_des.p"), "rb" ))$/;"	v	language:Python
+company_twidata	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^company_twidata = pickle.load(open(make_path("company_twidata.p"), "rb"))$/;"	v	language:Python
 comp_lst	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^comp_lst = list(company_des.keys())$/;"	v	language:Python
 config	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/__init__.py	/^import config$/;"	i	language:Python
 config	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/__init__.py	/^import config$/;"	i	language:Python
