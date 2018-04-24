@@ -158,7 +158,10 @@ class Home extends React.Component {
 			"request": {}
 		}
 
-		this.visualizeResults(data)
+		const DEBUGGING = false
+
+		if (DEBUGGING)
+			this.visualizeResults(data)
 	}
 
 	handleChange = (event) => {
@@ -219,7 +222,7 @@ class Home extends React.Component {
 								<div>
 									<br></br>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<h4> {ticker} </h4>
+										<h4> {data.company_sentiments[ticker][2]} ({ticker}) </h4>
 									</div>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
 										<img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`} width="60%"></img>
@@ -246,7 +249,7 @@ class Home extends React.Component {
 
   render () {
 		let body_view = (<div></div>)
-		if (this.state.data.final_ranking !== []) {
+		if (this.state.data.final_ranking !== [] && this.state.data.final_ranking.length > 0) {
 			body_view = (
 
 				<div className="Slideshow">
@@ -372,12 +375,13 @@ class Home extends React.Component {
 						</div>
 
 					</div>
-				</form>
+
 				<div>
 					{(this.state.loading_results)
 						? (<div className="loader"></div>)
 						: (<div></div>)}
 				</div>
+				</form>
 			</div>
 
 
