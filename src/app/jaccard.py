@@ -46,7 +46,7 @@ def jaccard(query, k=10):
         if inte:
             matches.append((jac,ticker))
 
-    sort_lst = sorted(matches, key=lambda x: x[0])
+    sort_lst = sorted(matches, key=lambda x: -1 * x[0])
 
     results = {}
     for i in range(k):

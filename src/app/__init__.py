@@ -46,37 +46,15 @@ def index():
 @app.route('/query', methods=['POST'])
 #@cross_origin()
 def query():
-  print(t_comp["AAPL"])
   data = json.loads(request.data)
-  print("Data: ", data)
-
-  jaccard_results = {}
-  company_sentiments = {}
-  cosine_results = []
-  final_ranked_results = []
-
-  # Peform jaccard similarity analysis on the keywords that the user input
-  # if data["user_keywords"] != "":
-  #   jaccard_results = jaccard(data["user_keywords"])
-  #   print("Jaccard results: ", jaccard_results)
 
   categories = data["categories"].keys()
-  # # Perform cosine similarity analysis on the categories the user chose
-  # if data["categories"] != {}:
-  #   categories = data["categories"].keys()
-  #   print("Categories: ", categories)
-  #   cosine_results = cosine_analysis(categories)
-	
-  # Get final ranking
-  # if data["categories"] != {} and data["user_keywords"] != "":
-  #   final_ranked_results = get_ranking(categories, data["user_keywords"])
-
-  if data["user_keywords"] != "":
-    final_ranked_results = get_sim_companies(data["user_keywords"])
+  company_sentiments = {}
+  ranked_results = get_ranking(categories, data["user_keywords"])
 
   # Do sentiment analysis on all of the returned companies
   NUM_COMPANIES = 3 # Set to a low amount for testing
-  for ticker in final_ranked_results:
+  for ticker in ranked_results:
     company_name = ticker_to_name[ticker]
     sentiment_data = company_twidata[company_name]
     company_sentiments[ticker] = sentiment_data + (company_name,)
@@ -86,7 +64,7 @@ def query():
       #"jaccard_results": jaccard_results,
       "company_sentiments": company_sentiments,
       #"cosine_results": cosine_results,
-      "final_ranking": final_ranked_results
+      "final_ranking": ranked_results
   }
 
   return jsonify(response)
