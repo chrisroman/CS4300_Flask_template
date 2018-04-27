@@ -212,7 +212,9 @@ class Home extends React.Component {
 		const data = response.data
 		const sentiments_view = (
 			<ul key="PLACEHOLDER" className="ul-results"> {
-				data.final_ranking.map((ticker) => {
+				data.final_ranking.map(x => {
+					const ticker = x[0]
+					const matching_terms = x[1]
 					const info = data.company_sentiments[ticker]
 					if (info === undefined)
 						return (<div></div>)
@@ -231,7 +233,7 @@ class Home extends React.Component {
 									<br></br>
 									<br></br>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<p style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{info[1]}</p>
+										<p style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{matching_terms.concat(' ', info[1])}</p>
 									</div>
 									<br></br>
 								</div>

@@ -35,9 +35,9 @@ def build_vectorizer(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):
     }
 '''
 def jaccard(query, k=10): 
-    expand = expand_query(query)
+    expand = expand_query(query.replace(',', ''))
     query = set(expand)
-    matches = [] 
+    matches = []
     for ticker in company_desc:
         des = TreebankWordTokenizer().tokenize(company_desc[ticker].lower())
         inte = set(des).intersection(query)
@@ -45,6 +45,7 @@ def jaccard(query, k=10):
         jac = float(len(inte)) / len(uni)
         if inte:
             matches.append((jac,ticker))
+
 
     sort_lst = sorted(matches, key=lambda x: -1 * x[0])
 
@@ -57,6 +58,22 @@ def jaccard(query, k=10):
             return results
 
     return results
+
+
+def get_matching_terms(query, symbol):
+  query = set(expand_query(query.replace(',', '')))
+  des = TreebankWordTokenizer().tokenize(company_desc[symbol].lower())
+  inte = set(des).intersection(query)
+  if len(inte) == 0:
+    return '';
+  else:
+    result_string = 'This company was chosen because its description contained the following terms related to your query: '
+    if len(inte) == 1:
+      result_string += ', '.join(inte) + '.'
+    else:
+      result_string += ', '.join(inte)[:-2] + '.'
+    return result_string
+
 
 # Get rid of this if you dont want it, just here as an example 
 #jaccard("vacation")

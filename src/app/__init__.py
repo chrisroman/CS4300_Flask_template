@@ -51,10 +51,11 @@ def query():
   categories = data["categories"].keys()
   company_sentiments = {}
   ranked_results = get_ranking(categories, data["user_keywords"])
+  ranked_results = [(x, get_matching_terms(data["user_keywords"], x)) for x in ranked_results]
 
   # Do sentiment analysis on all of the returned companies
   NUM_COMPANIES = 3 # Set to a low amount for testing
-  for ticker in ranked_results:
+  for ticker, _ in ranked_results:
     company_name = ticker_to_name[ticker]
     sentiment_data = company_twidata[company_name]
     company_sentiments[ticker] = sentiment_data + (company_name,)
