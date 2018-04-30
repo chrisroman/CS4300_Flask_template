@@ -109,7 +109,7 @@ class TwitterClient(object):
         sentiment_val_arr = [val_map[x] for x in tweet_sentiments]
         sentiment_val = sum(sentiment_val_arr)
         
-        print("TWEETS: ", tweets)
+        # print("TWEETS: ", tweets)
         print("SENTIMENT ARRAY: ", sentiment_val_arr)
 
         try:
@@ -134,7 +134,10 @@ class TwitterClient(object):
         return (sentiment_val, descriptor)
 
  
-# company_name = "Slack"
-# api = TwitterClient()
-# company_sentiment = api.get_company_sentiment_descriptor(company_name)
-# print(company_sentiment)
+company_name = "Tesla"
+api = TwitterClient()
+company_sentiment = api.get_company_sentiment_descriptor(company_name)
+print(company_sentiment)
+
+
+
