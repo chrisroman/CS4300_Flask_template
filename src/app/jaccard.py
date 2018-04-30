@@ -64,15 +64,16 @@ def get_matching_terms(query, symbol):
   query = set(expand_query(query.replace(',', '')))
   des = TreebankWordTokenizer().tokenize(company_desc[symbol].lower())
   inte = set(des).intersection(query)
+  inte = map(lambda token: token.title(), inte)
 
   if len(inte) == 0:
     return '';
   else:
-    result_string = 'This company was chosen because its description contained the following terms related to your query: '
+    result_string = 'Most Relevant Terms: '
     if len(inte) == 1:
-      result_string += ', '.join(inte) + '.'
+      result_string += ', '.join(inte)
     else:
-      result_string += ', '.join(inte)[:-2] + '.'
+      result_string += ', '.join(inte)[:-2]
     return result_string
 
 

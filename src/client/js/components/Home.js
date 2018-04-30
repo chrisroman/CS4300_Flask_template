@@ -217,16 +217,20 @@ class Home extends React.Component {
 				data.final_ranking.map(x => {
 					const ticker = x[0]
 					const matching_terms = x[1]
+					console.log("matching_terms: ", matching_terms)
 					const info = data.company_sentiments[ticker]
 					if (info === undefined)
 						return (<div></div>)
 					return (
-						<li key={ticker}>
+						<li key={ticker} className="scrollable">
 							<div style={{display: 'flex', justifyContent: 'center'}}>
 								<div>
 									<br></br>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
 										<h4> {data.company_sentiments[ticker][2]} ({ticker}) </h4>
+									</div>
+									<div style={{display: 'flex', justifyContent: 'center'}}>
+										<p className="scrollable">{matching_terms}</p>
 									</div>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
 										<img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`} width="60%"></img>
@@ -235,7 +239,7 @@ class Home extends React.Component {
 									<br></br>
 									<br></br>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<p style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{matching_terms.concat(' ', info[1])}</p>
+										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{info[1]}</p>
 									</div>
 									<br></br>
 								</div>
@@ -310,7 +314,7 @@ class Home extends React.Component {
 				<form className="global-search" onSubmit={this.performQuery}>
 					<h1>CompanySearch</h1>
 					<div>
-						<Input placeholder="Enter your keywords here..."
+						<Input placeholder="Enter your keywords here (separated by spaces)"
 							onChange={this.handleChange}
 							className="form-control"
 							name="user_keywords"
