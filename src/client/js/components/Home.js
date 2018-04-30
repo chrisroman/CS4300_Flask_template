@@ -221,7 +221,19 @@ class Home extends React.Component {
 					const info = data.company_sentiments[ticker]
 					const split_info = info[1].split(".")
 					let IR_info = split_info[0] + "." + split_info[1] + "."
-					let tweet = split_info.slice(2, split_info.length)
+					let tweet = split_info.slice(2, split_info.length).join(".")
+					let split_tweet = tweet.split(":")
+					tweet = split_tweet.slice(1, split_tweet.length).join(":")
+
+					let sentiment_score = info[0]
+					// Negative: -1, Neutral: 0, Postitive: 1
+					let sentiment_eval = "\u{1F610}\u{1F610}\u{1F610}"
+					if (sentiment_score <= -6)
+						sentiment_eval = "\u{1F621}\u{1F621}\u{1F621}"
+					else if (sentiment_score >= 3)
+						sentiment_eval = "\u{1F607}\u{1F607}\u{1F607}"
+
+					console.log("SCORE: ", sentiment_score)
 					if (info === undefined)
 						return (<div></div>)
 					return (
@@ -246,12 +258,33 @@ class Home extends React.Component {
 									<br></br>
 									<br></br>
 									<br></br>
+
+									<div style={{display: 'flex', justifyContent: 'center'}}>
+										<p className="scrollable" style={{fontSize: "30px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{`Company Description`}</p>
+									</div>
+									<div style={{display: 'flex', justifyContent: 'center'}}>
+										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{data.company_sentiments[ticker][3]}</p>
+									</div>
+									<br></br>
+									<br></br>
+
+									<div style={{display: 'flex', justifyContent: 'center'}}>
+										<p className="scrollable" style={{fontSize: "30px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>
+											{`Twitter Sentiment Analysis: ` + sentiment_eval}
+										</p>
+									</div>
+
 									<div style={{display: 'flex', justifyContent: 'center'}}>
 										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{IR_info}</p>
+									</div>
+
+									<div style={{display: 'flex', justifyContent: 'center'}}>
+										<p className="scrollable" style={{fontSize: "25px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{`Sample Tweet`}</p>
 									</div>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
 										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{tweet}</p>
 									</div>
+									<br></br>
 								</div>
 							</div>
 						</li>    
@@ -377,7 +410,7 @@ class Home extends React.Component {
 						<div className="category-list">
 							<Nav card={true} style={{width: "50%", align: "center", margin: "0 auto"}}>
 								<NavItem>
-								<Button type="button" color="success"
+								<Button type="button" color="info"
 									size="sm" name={"Categories:"} active={true}>
 									{"Categories:"}
 								</Button>
