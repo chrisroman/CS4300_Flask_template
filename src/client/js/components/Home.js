@@ -219,6 +219,9 @@ class Home extends React.Component {
 					const matching_terms = x[1]
 					console.log("matching_terms: ", matching_terms)
 					const info = data.company_sentiments[ticker]
+					console.log("INFO: ", info)
+					const valid_twitter = (info[1] !== "No description available...")
+
 					const split_info = info[1].split(".")
 					let IR_info = split_info[0] + "." + split_info[1] + "."
 					let tweet = split_info.slice(2, split_info.length).join(".")
@@ -234,8 +237,47 @@ class Home extends React.Component {
 						sentiment_eval = "\u{1F607}\u{1F607}\u{1F607}"
 
 					console.log("SCORE: ", sentiment_score)
+
 					if (info === undefined)
 						return (<div></div>)
+
+
+					let twitter_view = (
+						<div>
+							<div style={{display: 'flex', justifyContent: 'center'}}>
+								<p className="scrollable" style={{fontSize: "30px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>
+									{"This company does not have credible Twitter information"}
+								</p>
+								<br></br>
+								<br></br>
+							</div>
+						</div>
+					)
+
+					if (valid_twitter) {
+						twitter_view = (
+							<div>
+								<div style={{display: 'flex', justifyContent: 'center'}}>
+									<p className="scrollable" style={{fontSize: "30px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>
+										{`Twitter Sentiment Analysis: ` + sentiment_eval}
+									</p>
+								</div>
+
+								<div style={{display: 'flex', justifyContent: 'center'}}>
+									<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{IR_info}</p>
+								</div>
+
+								<div style={{display: 'flex', justifyContent: 'center'}}>
+									<p className="scrollable" style={{fontSize: "25px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{`Sample Tweet`}</p>
+								</div>
+								<div style={{display: 'flex', justifyContent: 'center'}}>
+									<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{tweet}</p>
+								</div>
+								<br></br>
+							</div>
+						)
+					}
+
 					return (
 						<li key={ticker} className="scrollable">
 							<div style={{display: 'flex', justifyContent: 'center'}}>
@@ -268,23 +310,7 @@ class Home extends React.Component {
 									<br></br>
 									<br></br>
 
-									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<p className="scrollable" style={{fontSize: "30px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>
-											{`Twitter Sentiment Analysis: ` + sentiment_eval}
-										</p>
-									</div>
-
-									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{IR_info}</p>
-									</div>
-
-									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<p className="scrollable" style={{fontSize: "25px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{`Sample Tweet`}</p>
-									</div>
-									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{tweet}</p>
-									</div>
-									<br></br>
+									{twitter_view}
 								</div>
 							</div>
 						</li>    
