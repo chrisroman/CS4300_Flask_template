@@ -66,6 +66,7 @@ get_company_sentiment_descriptor	/Users/chrisroman/CornellWork/Spring_2018/CS430
 get_labels	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/cluster.py	/^def get_labels():$/;"	f	language:Python
 get_matching_terms	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv3/src/app/jaccard.py	/^def get_matching_terms(query, symbol):$/;"	f	language:Python
 get_ranking	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/ranking.py	/^def get_ranking(categories, keywords, k=10):$/;"	f	language:Python
+get_ranking	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv3/src/app/ranking.py	/^def get_ranking(categories, keywords, k=10):$/;"	f	language:Python
 get_sim_companies	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/clusteredcompanies.py	/^def get_sim_companies(query):$/;"	f	language:Python
 get_topK	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcher/src/app/cat_cosine.py	/^def get_topK(mat, k):$/;"	f	language:Python
 get_topK	/Users/chrisroman/CornellWork/Spring_2018/CS4300/companysearcherv2/src/app/cat_cosine.py	/^def get_topK(mat, k):$/;"	f	language:Python
