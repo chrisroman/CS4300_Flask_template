@@ -233,14 +233,24 @@ class Home extends React.Component {
 										<p className="scrollable">{matching_terms}</p>
 									</div>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`} width="60%"></img>
+										<img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`} width="60%" id="closeButton"></img>
 									</div>
 									<br></br>
 									<br></br>
 									<br></br>
+
+									<div style={{display: 'flex', justifyContent: 'center'}}>
+										<p className="scrollable" style={{fontSize: "30px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{`Company Description`}</p>
+									</div>
+
+									<div style={{display: 'flex', justifyContent: 'center'}}>
+										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{data.company_sentiments[ticker][3]}</p>
+									</div>
+
 									<div style={{display: 'flex', justifyContent: 'center'}}>
 										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{info[1]}</p>
 									</div>
+
 									<br></br>
 								</div>
 							</div>
