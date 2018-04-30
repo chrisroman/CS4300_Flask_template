@@ -193,7 +193,9 @@ class Home extends React.Component {
 		})
 	}
 
-	performQuery = () => {
+	performQuery = (e) => {
+		e.preventDefault()
+		console.log(e)
 		this.setState({loading_results: true})
 		axios.post('/query', {
 			user_keywords: this.state.user_keywords,
@@ -305,7 +307,7 @@ class Home extends React.Component {
 					<p>Student Names: {this.state.names}</p>
 				</div>
 
-				<form className="global-search">
+				<form className="global-search" onSubmit={this.performQuery}>
 					<h1>CompanySearch</h1>
 					<div>
 						<Input placeholder="Enter your keywords here..."
@@ -360,13 +362,14 @@ class Home extends React.Component {
 
 						<div className="category-list">
 							<Nav card={true} style={{width: "50%", align: "center", margin: "0 auto"}}>
+								<NavItem>
+								<Button type="button" color="success"
+									size="sm" name={"Categories:"} active={true}>
+									{"Categories:"}
+								</Button>
+								</NavItem>
+
 								{Object.keys(this.state.categories).map((category) => {
-									<div>
-									<Button type="button" color="success"
-										size="sm" name={"Categories:"}>
-										{' ' + "Categories:"}
-									</Button>
-									</div>
 									return (
 										<NavItem key={category}>
 											<div>
