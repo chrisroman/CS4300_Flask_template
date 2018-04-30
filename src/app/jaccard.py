@@ -64,6 +64,7 @@ def get_matching_terms(query, symbol):
   query = set(expand_query(query.replace(',', '')))
   des = TreebankWordTokenizer().tokenize(company_desc[symbol].lower())
   inte = set(des).intersection(query)
+
   if len(inte) == 0:
     return '';
   else:

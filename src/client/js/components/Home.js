@@ -359,22 +359,31 @@ class Home extends React.Component {
 						</Dropdown>
 
 						<div className="category-list">
-							<Nav card={true} justified={true}>
+							<Nav card={true} style={{width: "50%", align: "center", margin: "0 auto"}}>
 								{Object.keys(this.state.categories).map((category) => {
+									<div>
+									<Button type="button" color="success"
+										size="sm" name={"Categories:"}>
+										{' ' + "Categories:"}
+									</Button>
+									</div>
 									return (
 										<NavItem key={category}>
-											<Button type="button" color="success" size="sm" name={category} onClick={this.removeCategory}>
-												{category + '  '}
-												<i className="fa fa-times"></i>
+											<div>
+											<Button className="fa fa-times" type="button" color="success"
+												size="sm" name={category} 
+												onClick={this.removeCategory}>
+												{' ' + category}
 											</Button>
+											</div>
 										</NavItem>
 									)
 								})}
 							</Nav>
+						</div>
 
 							<Button type="button" className="btn btn-info" onClick={this.performQuery}> Go! </Button>
 
-						</div>
 
 					</div>
 
