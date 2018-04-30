@@ -31,7 +31,8 @@ def make_path(filename):
   dir_path = os.path.dirname(os.path.realpath(__file__))
   return os.path.join(dir_path, filename)
 
-t_comp = pickle.load(open(make_path("t_comp.p"), "rb" ))
+t_comp          = pickle.load(open(make_path("t_comp.p"), "rb" ))
+comp_d          = pickle.load(open(make_path("c_des.p"), "rb" ))
 company_twidata = pickle.load(open(make_path("company_twidata.p"), "rb"))
 
 # Import + Register Blueprints
@@ -56,9 +57,10 @@ def query():
   # Do sentiment analysis on all of the returned companies
   NUM_COMPANIES = 3 # Set to a low amount for testing
   for ticker, _ in ranked_results:
-    company_name = ticker_to_name[ticker]
-    sentiment_data = company_twidata[company_name]
-    company_sentiments[ticker] = sentiment_data + (company_name,)
+    company_name               = ticker_to_name[ticker]
+    sentiment_data             = company_twidata[company_name]
+    company_description        = comp_d[ticker]
+    company_sentiments[ticker] = sentiment_data + (company_name,) + (company_description,)
 
   # Create response to be sent back to client-side
   response = {
