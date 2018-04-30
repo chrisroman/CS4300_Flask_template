@@ -23,7 +23,7 @@ def get_ranking(categories, keywords, k=10):
     lsa_results = get_sim_companies(keywords)
     for cnt, lsa_result in enumerate(lsa_results):
       symbol = lsa_result
-      points = (500 - cnt)
+      points = 20
       if symbol in company_points_dict:
         company_points_dict[symbol] += points
       else:
@@ -34,7 +34,7 @@ def get_ranking(categories, keywords, k=10):
     cosine_results = cosine_analysis(categories, k=500)
     for cnt, cosine_result in enumerate(cosine_results):
       symbol = cosine_result
-      points = (500 - cnt) * 0.2
+      points = (500 - cnt) * 0.15
       if symbol in company_points_dict:
         company_points_dict[symbol] += points
       else:

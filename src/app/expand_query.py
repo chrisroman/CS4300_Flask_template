@@ -22,20 +22,21 @@ synonyms to the end of the original query
 ''' 
 
 def expand_query(query):
-    original_q = query
-    # dictionary = PyDictionary() 
-    query = original_q.split() 
-    synon = []
-    for w in query:
-        synon += synonyms(w)
-    n_query = list(query)
+    return query.split()
+    # original_q = query
+    # # dictionary = PyDictionary() 
+    # query = original_q.split() 
+    # synon = []
+    # for w in query:
+    #     synon += synonyms(w)
+    # n_query = list(query)
 
-    if synon:
+    # if synon:
 
-        for words in synon: 
-            n_query.append(words.lower().replace("_"," "))
+    #     for words in synon: 
+    #         n_query.append(words.lower().replace("_"," "))
 
-        return n_query
+    #     return n_query
 
-    else: 
-        return [original_q]
+    # else: 
+    #     return [original_q]
