@@ -28,7 +28,7 @@ def expand_query(query):
     synon = []
     for w in query:
         synon += synonyms(w)
-    n_query = [original_q]
+    n_query = list(query)
 
     if synon:
 

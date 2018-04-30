@@ -37,6 +37,7 @@ def build_vectorizer(max_features, stop_words, max_df=0.8, min_df=1, norm='l2'):
 def jaccard(query, k=10): 
     expand = expand_query(query.replace(',', ''))
     query = set(expand)
+    print("EXPANDED QUERY jaccard: ", query)
     matches = []
     for ticker in company_desc:
         des = TreebankWordTokenizer().tokenize(company_desc[ticker].lower())
@@ -62,6 +63,7 @@ def jaccard(query, k=10):
 
 def get_matching_terms(query, symbol):
   query = set(expand_query(query.replace(',', '')))
+  print("EXPANDED QUERY get_matching_terms: ", query)
   des = TreebankWordTokenizer().tokenize(company_desc[symbol].lower())
   inte = set(des).intersection(query)
   inte = map(lambda token: token.title(), inte)
@@ -70,10 +72,7 @@ def get_matching_terms(query, symbol):
     return '';
   else:
     result_string = 'Most Relevant Term(s): '
-    if len(inte) == 1:
-      result_string += ', '.join(inte)
-    else:
-      result_string += ', '.join(inte)[:-2]
+    result_string += ', '.join(inte)
     return result_string
 
 
