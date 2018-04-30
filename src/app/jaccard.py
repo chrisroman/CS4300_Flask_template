@@ -69,7 +69,7 @@ def get_matching_terms(query, symbol):
   if len(inte) == 0:
     return '';
   else:
-    result_string = 'Most Relevant Terms: '
+    result_string = 'Most Relevant Term(s): '
     if len(inte) == 1:
       result_string += ', '.join(inte)
     else:

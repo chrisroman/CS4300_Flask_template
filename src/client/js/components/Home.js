@@ -219,6 +219,9 @@ class Home extends React.Component {
 					const matching_terms = x[1]
 					console.log("matching_terms: ", matching_terms)
 					const info = data.company_sentiments[ticker]
+					const split_info = info[1].split(".")
+					let IR_info = split_info[0] + "." + split_info[1] + "."
+					let tweet = split_info.slice(2, split_info.length)
 					if (info === undefined)
 						return (<div></div>)
 					return (
@@ -232,16 +235,23 @@ class Home extends React.Component {
 									<div style={{display: 'flex', justifyContent: 'center'}}>
 										<p className="scrollable">{matching_terms}</p>
 									</div>
-									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`} width="60%"></img>
+									<div style={{justifyContent: 'center', display: "center", margin: "auto"}}>
+										<div style={{justifyContent: "center", margin: "0 auto", width: "50%"}}>
+										<a href={"http://money.cnn.com/quote/quote.html?symb=" + ticker} target="_blank" style={{margin: "0 auto", width: "50%"}}>
+											<img src={`http://markets.money.cnn.com/services/api/chart/snapshot_chart_api.asp?symb=${ticker}`} width="100%" 
+											style={{margin: "0 auto"}}></img>
+										</a>
+										</div>
 									</div>
 									<br></br>
 									<br></br>
 									<br></br>
 									<div style={{display: 'flex', justifyContent: 'center'}}>
-										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{info[1]}</p>
+										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{IR_info}</p>
 									</div>
-									<br></br>
+									<div style={{display: 'flex', justifyContent: 'center'}}>
+										<p className="scrollable" style={{fontSize: "20px", paddingLeft: "25px", paddingRight: "25px", textAlign: "justify"}}>{tweet}</p>
+									</div>
 								</div>
 							</div>
 						</li>    
