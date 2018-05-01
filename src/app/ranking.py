@@ -8,11 +8,18 @@ def get_ranking(categories, keywords, k=10):
 
   # jaccard
   if keywords != "":
-    jaccard_results = jaccard(keywords, k=500)
+    jaccard_results = jaccard(keywords, k=40)
     jaccard_results = sorted(jaccard_results.items(), key=lambda x: -1 * x[1][0])
     for cnt, jaccard_result in enumerate(jaccard_results):
       symbol = jaccard_result[1][1]
-      points = 500 - cnt
+      if cnt == 0:
+        points = 50 
+      elif cnt == 1:
+        points = 45
+      elif cnt == 2:
+        points = 40
+      else:
+        points = 40  - cnt
       if symbol in company_points_dict:
         company_points_dict[symbol] += points
       else:
@@ -23,7 +30,7 @@ def get_ranking(categories, keywords, k=10):
     lsa_results = get_sim_companies(keywords)
     for cnt, lsa_result in enumerate(lsa_results):
       symbol = lsa_result
-      points = 20
+      points = 15
       if symbol in company_points_dict:
         company_points_dict[symbol] += points
       else:
@@ -34,7 +41,7 @@ def get_ranking(categories, keywords, k=10):
     cosine_results = cosine_analysis(categories, k=500)
     for cnt, cosine_result in enumerate(cosine_results):
       symbol = cosine_result
-      points = (500 - cnt) * 0.15
+      points = (500 - cnt) * 0.015
       if symbol in company_points_dict:
         company_points_dict[symbol] += points
       else:
